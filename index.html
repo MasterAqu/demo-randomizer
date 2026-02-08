@@ -1,0 +1,85 @@
+﻿<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Vims-Randomizer - приложение для случайного выбора участников">
+    <title>Vims-Randomizer</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="app-container">
+        <header class="app-header">
+            <h1>🎲 Vims-Randomizer</h1>
+        </header>
+
+        <main class="app-main">
+            <section class="input-panel" aria-label="Панель ввода участников">
+                <div class="input-group">
+                    <label for="participantCount" id="inputLabel">Количество демо:</label>
+                    <input
+                        type="number"
+                        id="participantCount"
+                        min="1"
+                        max="1000"
+                        placeholder="Введите число..."
+                        aria-describedby="participantHelp"
+                    >
+                    <span id="participantHelp" class="sr-only">Введите число от 1 до 1000</span>
+                </div>
+                <div class="button-group">
+                    <button id="addParticipants" class="btn btn-primary">
+                        ➕ Создать список
+                    </button>
+                    <button id="addDemoToActive" class="btn btn-secondary" style="display: none;">
+                        ➕ Добавить к списку
+                    </button>
+                </div>
+            </section>
+
+            <section class="current-section" aria-label="Текущий участник">
+                <div
+                    id="currentParticipant"
+                    class="current-participant"
+                    role="status"
+                    aria-live="polite"
+                >
+                    ?
+                </div>
+                <div class="stats">
+                    <span>Всего: <strong id="demoCount">0</strong></span>
+                    <span>Осталось: <strong id="remainingCount">0</strong></span>
+                </div>
+            </section>
+
+            <section class="control-panel" aria-label="Панель управления">
+                <button id="startRandom" class="btn btn-success" disabled>
+                    🚀 Поехали
+                </button>
+                <button id="undoLast" class="btn btn-warning" disabled>
+                    ↩️ Отменить
+                </button>
+                <button id="resetAll" class="btn btn-danger">
+                    🔄 Сбросить всё
+                </button>
+            </section>
+
+            <section class="history-section" aria-label="История выбранных">
+                <h2>История</h2>
+                <ul id="participantHistory" class="history-list" role="list" aria-live="polite">
+                </ul>
+            </section>
+
+            <section class="status-section" aria-live="assertive">
+                <div id="statusMessage" class="status-message success" role="alert">
+                    Готов к работе! Введите количество демо.
+                </div>
+            </section>
+        </main>
+
+        <!-- Настройки удалены - используются фиксированные значения: темная тема, минимальная анимация, без звука -->
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
