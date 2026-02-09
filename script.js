@@ -233,6 +233,9 @@ class VimsRandomizer {
         Logger.performance('handleAddParticipants', () => {
             this.addParticipants(count);
         });
+        
+        // Очищаем поле ввода после успешной обработки
+        this.elements.participantCount.value = '';
     }
     
     handleAddDemoToActive() {
