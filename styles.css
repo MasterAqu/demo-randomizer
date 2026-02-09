@@ -523,183 +523,309 @@ input[type="checkbox"] {
       -2px 0 #00ffff;
     clip-path: inset(0 0 0 0);
   }
-  5% {
-    transform: translate(-4px, 2px) skewX(8deg) scale(1.02);
-    filter: hue-rotate(45deg) brightness(1.4) contrast(1.2);
-    text-shadow:
-      4px 0 #ff0000,
-      -4px 0 #00ffff,
-      0 2px #ff00ff;
-    clip-path: inset(10% 0 60% 0);
-  }
-  10% {
-    transform: translate(4px, -3px) skewX(-10deg) scale(0.98);
-    filter: hue-rotate(90deg) brightness(1.6) contrast(1.3) invert(0.1);
-    text-shadow:
-      -5px 0 #ff0000,
-      5px 0 #00ffff,
-      0 -3px #00ff00;
-    clip-path: inset(40% 0 20% 0);
-  }
-  15% {
-    transform: translate(-6px, 4px) skewX(12deg) scale(1.05);
-    filter: hue-rotate(135deg) brightness(1.8) contrast(1.5) invert(0.2);
-    text-shadow:
-      6px 0 #ff0000,
-      -6px 0 #00ffff,
-      3px 3px #ffff00;
-    clip-path: inset(70% 0 5% 0);
-  }
-  20% {
-    transform: translate(5px, -5px) skewX(-8deg) scale(0.95);
-    filter: hue-rotate(180deg) brightness(2) contrast(1.4) saturate(1.5);
-    text-shadow:
-      -4px 0 #ff0000,
-      4px 0 #00ffff,
-      -2px -2px #ff00ff;
-    clip-path: inset(20% 0 50% 0);
-  }
-  25% {
-    transform: translate(-3px, 6px) skewX(15deg) scale(1.08);
-    filter: hue-rotate(225deg) brightness(1.7) contrast(1.6) invert(0.15);
-    text-shadow:
-      8px 0 #ff0000,
-      -8px 0 #00ffff,
-      0 4px #00ff00;
-    clip-path: inset(50% 0 30% 0);
-  }
-  30% {
-    transform: translate(7px, -2px) skewX(-12deg) scale(0.92);
-    filter: hue-rotate(270deg) brightness(1.9) contrast(1.3);
-    text-shadow:
-      -6px 0 #ff0000,
-      6px 0 #00ffff,
-      4px -4px #ffff00;
-    clip-path: inset(0 0 80% 0);
-  }
-  35% {
-    transform: translate(-5px, 5px) skewX(6deg) scale(1.03);
-    filter: hue-rotate(315deg) brightness(1.5) contrast(1.4) saturate(2);
-    text-shadow:
-      5px 0 #ff0000,
-      -5px 0 #00ffff,
-      -3px 3px #ff00ff;
-    clip-path: inset(60% 0 10% 0);
-  }
-  40% {
-    transform: translate(6px, -4px) skewX(-15deg) scale(1.06);
-    filter: hue-rotate(0deg) brightness(2.2) contrast(1.7) invert(0.25);
-    text-shadow:
-      -8px 0 #ff0000,
-      8px 0 #00ffff,
-      0 -5px #00ff00;
-    clip-path: inset(30% 0 40% 0);
-  }
-  45% {
-    transform: translate(-7px, 3px) skewX(10deg) scale(0.97);
-    filter: hue-rotate(45deg) brightness(1.6) contrast(1.5);
+  3% {
+    transform: translate(-2px, 1px) skewX(4deg) scale(1.01);
+    filter: hue-rotate(20deg) brightness(1.2) contrast(1.1);
     text-shadow:
       3px 0 #ff0000,
       -3px 0 #00ffff,
-      5px 5px #ffff00;
-    clip-path: inset(80% 0 0 0);
+      0 1px #ff00ff;
+    clip-path: inset(5% 0 30% 0);
   }
-  50% {
-    transform: translate(4px, -6px) skewX(-6deg) scale(1.1);
-    filter: hue-rotate(90deg) brightness(2.1) contrast(1.8) saturate(2.5) invert(0.3);
+  6% {
+    transform: translate(2px, -1px) skewX(-4deg) scale(0.99);
+    filter: hue-rotate(40deg) brightness(1.3) contrast(1.2) invert(0.05);
     text-shadow:
-      -10px 0 #ff0000,
-      10px 0 #00ffff,
-      -4px -4px #ff00ff;
-    clip-path: inset(15% 0 65% 0);
+      -4px 0 #ff0000,
+      4px 0 #00ffff,
+      0 -2px #00ff00;
+    clip-path: inset(40% 0 10% 0);
   }
-  55% {
-    transform: translate(-4px, 7px) skewX(18deg) scale(0.94);
-    filter: hue-rotate(135deg) brightness(1.8) contrast(1.4);
-    text-shadow:
-      7px 0 #ff0000,
-      -7px 0 #00ffff,
-      0 6px #00ff00;
-    clip-path: inset(45% 0 25% 0);
-  }
-  60% {
-    transform: translate(8px, -3px) skewX(-8deg) scale(1.04);
-    filter: hue-rotate(180deg) brightness(2) contrast(1.6) invert(0.2);
-    text-shadow:
-      -5px 0 #ff0000,
-      5px 0 #00ffff,
-      6px -2px #ffff00;
-    clip-path: inset(75% 0 5% 0);
-  }
-  65% {
-    transform: translate(-6px, 4px) skewX(14deg) scale(0.96);
-    filter: hue-rotate(225deg) brightness(1.7) contrast(1.5) saturate(1.8);
-    text-shadow:
-      9px 0 #ff0000,
-      -9px 0 #00ffff,
-      -2px 4px #ff00ff;
-    clip-path: inset(25% 0 55% 0);
-  }
-  70% {
-    transform: translate(5px, -5px) skewX(-10deg) scale(1.07);
-    filter: hue-rotate(270deg) brightness(1.9) contrast(1.7) invert(0.15);
-    text-shadow:
-      -7px 0 #ff0000,
-      7px 0 #00ffff,
-      3px -5px #00ff00;
-    clip-path: inset(55% 0 20% 0);
-  }
-  75% {
-    transform: translate(-8px, 6px) skewX(5deg) scale(0.93);
-    filter: hue-rotate(315deg) brightness(2.1) contrast(1.3);
-    text-shadow:
-      6px 0 #ff0000,
-      -6px 0 #00ffff,
-      -5px -3px #ffff00;
-    clip-path: inset(5% 0 75% 0);
-  }
-  80% {
-    transform: translate(7px, -4px) skewX(-18deg) scale(1.09);
-    filter: hue-rotate(0deg) brightness(1.8) contrast(2) saturate(2.2) invert(0.35);
-    text-shadow:
-      -12px 0 #ff0000,
-      12px 0 #00ffff,
-      0 -6px #ff00ff;
-    clip-path: inset(35% 0 45% 0);
-  }
-  85% {
-    transform: translate(-5px, 5px) skewX(12deg) scale(0.98);
-    filter: hue-rotate(45deg) brightness(1.6) contrast(1.4);
-    text-shadow:
-      4px 0 #ff0000,
-      -4px 0 #00ffff,
-      7px 2px #00ff00;
-    clip-path: inset(65% 0 15% 0);
-  }
-  90% {
-    transform: translate(6px, -6px) skewX(-5deg) scale(1.02);
-    filter: hue-rotate(90deg) brightness(1.9) contrast(1.6) invert(0.1);
-    text-shadow:
-      -9px 0 #ff0000,
-      9px 0 #00ffff,
-      -3px -6px #ffff00;
-    clip-path: inset(0 0 90% 0);
-  }
-  95% {
-    transform: translate(-4px, 3px) skewX(20deg) scale(1.06);
-    filter: hue-rotate(135deg) brightness(1.7) contrast(1.5) saturate(1.6);
+  9% {
+    transform: translate(-3px, 2px) skewX(6deg) scale(1.02);
+    filter: hue-rotate(60deg) brightness(1.4) contrast(1.3) saturate(1.2);
     text-shadow:
       5px 0 #ff0000,
       -5px 0 #00ffff,
-      4px 5px #ff00ff;
-    clip-path: inset(85% 0 0 0);
+      2px 2px #ffff00;
+    clip-path: inset(70% 0 5% 0);
+  }
+  12% {
+    transform: translate(3px, -2px) skewX(-6deg) scale(0.98);
+    filter: hue-rotate(80deg) brightness(1.5) contrast(1.4) invert(0.1);
+    text-shadow:
+      -6px 0 #ff0000,
+      6px 0 #00ffff,
+      -3px -3px #ff00ff;
+    clip-path: inset(20% 0 50% 0);
+  }
+  15% {
+    transform: translate(-4px, 3px) skewX(8deg) scale(1.03);
+    filter: hue-rotate(100deg) brightness(1.6) contrast(1.5) saturate(1.3);
+    text-shadow:
+      7px 0 #ff0000,
+      -7px 0 #00ffff,
+      0 3px #00ff00;
+    clip-path: inset(50% 0 20% 0);
+  }
+  18% {
+    transform: translate(4px, -3px) skewX(-8deg) scale(0.97);
+    filter: hue-rotate(120deg) brightness(1.7) contrast(1.6) invert(0.15);
+    text-shadow:
+      -8px 0 #ff0000,
+      8px 0 #00ffff,
+      4px -4px #ffff00;
+    clip-path: inset(80% 0 0 0);
+  }
+  21% {
+    transform: translate(-5px, 4px) skewX(10deg) scale(1.04);
+    filter: hue-rotate(140deg) brightness(1.8) contrast(1.7) saturate(1.4);
+    text-shadow:
+      9px 0 #ff0000,
+      -9px 0 #00ffff,
+      -4px 4px #ff00ff;
+    clip-path: inset(10% 0 60% 0);
+  }
+  24% {
+    transform: translate(5px, -4px) skewX(-10deg) scale(0.96);
+    filter: hue-rotate(160deg) brightness(1.9) contrast(1.8) invert(0.2);
+    text-shadow:
+      -10px 0 #ff0000,
+      10px 0 #00ffff,
+      0 -5px #00ff00;
+    clip-path: inset(60% 0 10% 0);
+  }
+  27% {
+    transform: translate(-6px, 5px) skewX(12deg) scale(1.05);
+    filter: hue-rotate(180deg) brightness(2) contrast(1.9) saturate(1.5);
+    text-shadow:
+      11px 0 #ff0000,
+      -11px 0 #00ffff,
+      5px 5px #ffff00;
+    clip-path: inset(30% 0 40% 0);
+  }
+  30% {
+    transform: translate(6px, -5px) skewX(-12deg) scale(0.95);
+    filter: hue-rotate(200deg) brightness(1.8) contrast(1.7) invert(0.15);
+    text-shadow:
+      -12px 0 #ff0000,
+      12px 0 #00ffff,
+      -5px -5px #ff00ff;
+    clip-path: inset(70% 0 5% 0);
+  }
+  33% {
+    transform: translate(-7px, 6px) skewX(14deg) scale(1.06);
+    filter: hue-rotate(220deg) brightness(1.9) contrast(1.8) saturate(1.6);
+    text-shadow:
+      13px 0 #ff0000,
+      -13px 0 #00ffff,
+      0 6px #00ff00;
+    clip-path: inset(40% 0 30% 0);
+  }
+  36% {
+    transform: translate(7px, -6px) skewX(-14deg) scale(0.94);
+    filter: hue-rotate(240deg) brightness(2) contrast(1.9) invert(0.25);
+    text-shadow:
+      -14px 0 #ff0000,
+      14px 0 #00ffff,
+      6px -6px #ffff00;
+    clip-path: inset(0 0 80% 0);
+  }
+  39% {
+    transform: translate(-8px, 7px) skewX(16deg) scale(1.07);
+    filter: hue-rotate(260deg) brightness(1.7) contrast(1.6) saturate(1.4);
+    text-shadow:
+      15px 0 #ff0000,
+      -15px 0 #00ffff,
+      -6px 6px #ff00ff;
+    clip-path: inset(20% 0 50% 0);
+  }
+  42% {
+    transform: translate(8px, -7px) skewX(-16deg) scale(0.93);
+    filter: hue-rotate(280deg) brightness(1.8) contrast(1.7) invert(0.2);
+    text-shadow:
+      -16px 0 #ff0000,
+      16px 0 #00ffff,
+      0 -7px #00ff00;
+    clip-path: inset(80% 0 0 0);
+  }
+  45% {
+    transform: translate(-9px, 8px) skewX(18deg) scale(1.08);
+    filter: hue-rotate(300deg) brightness(1.9) contrast(1.8) saturate(1.5);
+    text-shadow:
+      17px 0 #ff0000,
+      -17px 0 #00ffff,
+      7px 7px #ffff00;
+    clip-path: inset(50% 0 20% 0);
+  }
+  48% {
+    transform: translate(9px, -8px) skewX(-18deg) scale(0.92);
+    filter: hue-rotate(320deg) brightness(2) contrast(1.9) invert(0.3);
+    text-shadow:
+      -18px 0 #ff0000,
+      18px 0 #00ffff,
+      -7px -7px #ff00ff;
+    clip-path: inset(10% 0 70% 0);
+  }
+  51% {
+    transform: translate(-10px, 9px) skewX(20deg) scale(1.09);
+    filter: hue-rotate(340deg) brightness(1.8) contrast(1.7) saturate(1.6);
+    text-shadow:
+      19px 0 #ff0000,
+      -19px 0 #00ffff,
+      0 8px #00ff00;
+    clip-path: inset(60% 0 10% 0);
+  }
+  54% {
+    transform: translate(10px, -9px) skewX(-20deg) scale(0.91);
+    filter: hue-rotate(0deg) brightness(1.9) contrast(1.8) invert(0.25);
+    text-shadow:
+      -20px 0 #ff0000,
+      20px 0 #00ffff,
+      8px -8px #ffff00;
+    clip-path: inset(30% 0 40% 0);
+  }
+  57% {
+    transform: translate(-11px, 10px) skewX(22deg) scale(1.1);
+    filter: hue-rotate(20deg) brightness(2) contrast(1.9) saturate(1.7);
+    text-shadow:
+      21px 0 #ff0000,
+      -21px 0 #00ffff,
+      -8px 8px #ff00ff;
+    clip-path: inset(70% 0 5% 0);
+  }
+  60% {
+    transform: translate(11px, -10px) skewX(-22deg) scale(0.9);
+    filter: hue-rotate(40deg) brightness(1.7) contrast(1.6) invert(0.2);
+    text-shadow:
+      -22px 0 #ff0000,
+      22px 0 #00ffff,
+      0 -10px #00ff00;
+    clip-path: inset(40% 0 30% 0);
+  }
+  63% {
+    transform: translate(-12px, 11px) skewX(24deg) scale(1.11);
+    filter: hue-rotate(60deg) brightness(1.8) contrast(1.7) saturate(1.5);
+    text-shadow:
+      23px 0 #ff0000,
+      -23px 0 #00ffff,
+      9px 9px #ffff00;
+    clip-path: inset(0 0 80% 0);
+  }
+  66% {
+    transform: translate(12px, -11px) skewX(-24deg) scale(0.89);
+    filter: hue-rotate(80deg) brightness(1.9) contrast(1.8) invert(0.35);
+    text-shadow:
+      -24px 0 #ff0000,
+      24px 0 #00ffff,
+      -9px -9px #ff00ff;
+    clip-path: inset(20% 0 50% 0);
+  }
+  69% {
+    transform: translate(-13px, 12px) skewX(26deg) scale(1.12);
+    filter: hue-rotate(100deg) brightness(2) contrast(1.9) saturate(1.6);
+    text-shadow:
+      25px 0 #ff0000,
+      -25px 0 #00ffff,
+      0 12px #00ff00;
+    clip-path: inset(80% 0 0 0);
+  }
+  72% {
+    transform: translate(13px, -12px) skewX(-26deg) scale(0.88);
+    filter: hue-rotate(120deg) brightness(1.7) contrast(1.6) invert(0.3);
+    text-shadow:
+      -26px 0 #ff0000,
+      26px 0 #00ffff,
+      10px -10px #ffff00;
+    clip-path: inset(50% 0 20% 0);
+  }
+  75% {
+    transform: translate(-14px, 13px) skewX(28deg) scale(1.13);
+    filter: hue-rotate(140deg) brightness(1.8) contrast(1.7) saturate(1.4);
+    text-shadow:
+      27px 0 #ff0000,
+      -27px 0 #00ffff,
+      -10px 10px #ff00ff;
+    clip-path: inset(10% 0 60% 0);
+  }
+  78% {
+    transform: translate(14px, -13px) skewX(-28deg) scale(0.87);
+    filter: hue-rotate(160deg) brightness(1.9) contrast(1.8) invert(0.25);
+    text-shadow:
+      -28px 0 #ff0000,
+      28px 0 #00ffff,
+      0 -13px #00ff00;
+    clip-path: inset(60% 0 10% 0);
+  }
+  81% {
+    transform: translate(-15px, 14px) skewX(30deg) scale(1.14);
+    filter: hue-rotate(180deg) brightness(2) contrast(1.9) saturate(1.5);
+    text-shadow:
+      29px 0 #ff0000,
+      -29px 0 #00ffff,
+      11px 11px #ffff00;
+    clip-path: inset(30% 0 40% 0);
+  }
+  84% {
+    transform: translate(15px, -14px) skewX(-30deg) scale(0.86);
+    filter: hue-rotate(200deg) brightness(1.7) contrast(1.6) invert(0.2);
+    text-shadow:
+      -30px 0 #ff0000,
+      30px 0 #00ffff,
+      -11px -11px #ff00ff;
+    clip-path: inset(70% 0 5% 0);
+  }
+  87% {
+    transform: translate(-16px, 15px) skewX(32deg) scale(1.15);
+    filter: hue-rotate(220deg) brightness(1.8) contrast(1.7) saturate(1.6);
+    text-shadow:
+      31px 0 #ff0000,
+      -31px 0 #00ffff,
+      0 15px #00ff00;
+    clip-path: inset(40% 0 30% 0);
+  }
+  90% {
+    transform: translate(16px, -15px) skewX(-32deg) scale(0.85);
+    filter: hue-rotate(240deg) brightness(1.9) contrast(1.8) invert(0.35);
+    text-shadow:
+      -32px 0 #ff0000,
+      32px 0 #00ffff,
+      12px -12px #ffff00;
+    clip-path: inset(0 0 80% 0);
+  }
+  93% {
+    transform: translate(-17px, 16px) skewX(34deg) scale(1.16);
+    filter: hue-rotate(260deg) brightness(2) contrast(1.9) saturate(1.7);
+    text-shadow:
+      33px 0 #ff0000,
+      -33px 0 #00ffff,
+      -12px 12px #ff00ff;
+    clip-path: inset(20% 0 50% 0);
+  }
+  96% {
+    transform: translate(17px, -16px) skewX(-34deg) scale(0.84);
+    filter: hue-rotate(280deg) brightness(1.7) contrast(1.6) invert(0.3);
+    text-shadow:
+      -34px 0 #ff0000,
+      34px 0 #00ffff,
+      0 -16px #00ff00;
+    clip-path: inset(80% 0 0 0);
+  }
+  98% {
+    transform: translate(-18px, 17px) skewX(36deg) scale(1.17);
+    filter: hue-rotate(300deg) brightness(1.8) contrast(1.7) saturate(1.5);
+    text-shadow:
+      35px 0 #ff0000,
+      -35px 0 #00ffff,
+      13px 13px #ffff00;
+    clip-path: inset(50% 0 20% 0);
   }
 }
 
 /* Псевдо-элементы для усиления эффекта глитча */
 .glitching {
   position: relative;
-  animation: glitch 0.08s ease-in-out infinite;
+  animation: glitch 0.06s steps(2, end) infinite;
 }
 
 .glitching::before,
@@ -711,68 +837,111 @@ input[type="checkbox"] {
   width: 100%;
   height: 100%;
   pointer-events: none;
+  mix-blend-mode: exclusion;
 }
 
 .glitching::before {
-  animation: glitch-before 0.1s ease-in-out infinite;
+  animation: glitch-layer-1 0.08s steps(4, end) infinite;
   color: #ff0000;
   z-index: -1;
+  opacity: 0.7;
 }
 
 .glitching::after {
-  animation: glitch-after 0.12s ease-in-out infinite;
+  animation: glitch-layer-2 0.1s steps(4, end) infinite;
   color: #00ffff;
   z-index: -2;
+  opacity: 0.7;
 }
 
-@keyframes glitch-before {
+@keyframes glitch-layer-1 {
   0%, 100% {
     transform: translate(0);
-    opacity: 0.8;
+    opacity: 0.7;
     clip-path: inset(0 0 0 0);
+  }
+  10% {
+    transform: translate(-12px, 3px);
+    opacity: 0.5;
+    clip-path: inset(15% 0 50% 0);
   }
   20% {
-    transform: translate(-8px, 2px);
-    opacity: 0.6;
-    clip-path: inset(20% 0 60% 0);
+    transform: translate(10px, -4px);
+    opacity: 0.8;
+    clip-path: inset(60% 0 10% 0);
+  }
+  30% {
+    transform: translate(-8px, 5px);
+    opacity: 0.4;
+    clip-path: inset(30% 0 40% 0);
   }
   40% {
-    transform: translate(6px, -4px);
+    transform: translate(14px, -6px);
+    opacity: 0.6;
+    clip-path: inset(70% 0 5% 0);
+  }
+  50% {
+    transform: translate(-10px, 7px);
     opacity: 0.9;
-    clip-path: inset(60% 0 20% 0);
+    clip-path: inset(20% 0 55% 0);
   }
   60% {
-    transform: translate(-4px, 6px);
+    transform: translate(12px, -8px);
     opacity: 0.5;
-    clip-path: inset(40% 0 40% 0);
+    clip-path: inset(85% 0 0 0);
+  }
+  70% {
+    transform: translate(-14px, 9px);
+    opacity: 0.7;
+    clip-path: inset(40% 0 25% 0);
   }
   80% {
-    transform: translate(8px, -2px);
-    opacity: 0.7;
-    clip-path: inset(0 0 80% 0);
+    transform: translate(8px, -10px);
+    opacity: 0.4;
+    clip-path: inset(5% 0 75% 0);
+  }
+  90% {
+    transform: translate(-6px, 11px);
+    opacity: 0.8;
+    clip-path: inset(50% 0 15% 0);
   }
 }
 
-@keyframes glitch-after {
+@keyframes glitch-layer-2 {
   0%, 100% {
     transform: translate(0);
-    opacity: 0.8;
+    opacity: 0.7;
     clip-path: inset(0 0 0 0);
   }
-  25% {
-    transform: translate(8px, -3px);
+  15% {
+    transform: translate(15px, -4px);
     opacity: 0.6;
-    clip-path: inset(50% 0 30% 0);
+    clip-path: inset(45% 0 30% 0);
   }
-  50% {
-    transform: translate(-6px, 5px);
+  30% {
+    transform: translate(-12px, 6px);
+    opacity: 0.8;
+    clip-path: inset(10% 0 65% 0);
+  }
+  45% {
+    transform: translate(10px, -8px);
+    opacity: 0.5;
+    clip-path: inset(75% 0 5% 0);
+  }
+  60% {
+    transform: translate(-8px, 10px);
     opacity: 0.9;
-    clip-path: inset(10% 0 70% 0);
+    clip-path: inset(25% 0 50% 0);
   }
   75% {
-    transform: translate(4px, -6px);
-    opacity: 0.5;
-    clip-path: inset(70% 0 10% 0);
+    transform: translate(14px, -12px);
+    opacity: 0.4;
+    clip-path: inset(80% 0 0 0);
+  }
+  90% {
+    transform: translate(-10px, 14px);
+    opacity: 0.7;
+    clip-path: inset(55% 0 20% 0);
   }
 }
 
