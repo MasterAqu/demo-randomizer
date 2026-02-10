@@ -1057,6 +1057,83 @@ input[type="checkbox"] {
   animation: winnerCelebration 1s ease-in-out;
 }
 
+/* Анимация резкого появления победителя после глитча */
+.winner-reveal {
+  animation: winnerReveal 0.3s ease-in-out;
+}
+
+@keyframes winnerReveal {
+  0% {
+    opacity: 0;
+    transform: scale(0.8);
+    filter: blur(4px);
+  }
+  50% {
+    opacity: 0.5;
+    transform: scale(1.05);
+    filter: blur(0);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+    filter: blur(0);
+    text-shadow: 0 0 20px var(--glow-green), 0 0 40px var(--primary-green);
+  }
+}
+ 
+/* Умеренный глитч-эффект для появления победителя (слабее рандомизации) */
+.winner-glitch {
+  position: relative;
+  animation: winnerGlitch 0.4s ease-in-out;
+}
+
+@keyframes winnerGlitch {
+  0%, 100% {
+    transform: translate(0) scale(1);
+    filter: hue-rotate(0deg) brightness(1) contrast(1);
+    text-shadow:
+      2px 0 #ff0000,
+      -2px 0 #00ffff;
+    clip-path: inset(0 0 0 0);
+  }
+  20% {
+    transform: translate(-1px, 0) skewX(2deg) scale(1.01);
+    filter: hue-rotate(10deg) brightness(1.1) contrast(1.05);
+    text-shadow:
+      3px 0 #ff0000,
+      -3px 0 #00ffff,
+      0 1px #ff00ff;
+    clip-path: inset(2% 0 5% 0);
+  }
+  40% {
+    transform: translate(1px, 0) skewX(-2deg) scale(0.99);
+    filter: hue-rotate(20deg) brightness(1.15) contrast(1.1) invert(0.02);
+    text-shadow:
+      -4px 0 #ff0000,
+      4px 0 #00ffff,
+      0 -2px #00ff00;
+    clip-path: inset(10% 0 2% 0);
+  }
+  60% {
+    transform: translate(-1px, 0) skewX(3deg) scale(1.02);
+    filter: hue-rotate(30deg) brightness(1.2) contrast(1.15) saturate(1.1);
+    text-shadow:
+      5px 0 #ff0000,
+      -5px 0 #00ffff,
+      2px 2px #ffff00;
+    clip-path: inset(5% 0 10% 0);
+  }
+  80% {
+    transform: translate(1px, 0) skewX(-3deg) scale(0.98);
+    filter: hue-rotate(40deg) brightness(1.25) contrast(1.2) invert(0.05);
+    text-shadow:
+      -6px 0 #ff0000,
+      6px 0 #00ffff,
+      -3px -3px #ff00ff;
+    clip-path: inset(8% 0 5% 0);
+  }
+}
+
 .slide-in {
   animation: slideInUp 0.3s ease-out;
 }

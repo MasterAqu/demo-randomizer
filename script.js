@@ -411,7 +411,8 @@ class VimsRandomizer {
 
         // Сразу показываем победителя в главном окне
         DOMUtils.updateElementText(this.elements.currentParticipant, winner.name);
-        DOMUtils.updateElementClass(this.elements.currentParticipant, 'bouncing', true);
+        DOMUtils.updateElementClass(this.elements.currentParticipant, 'winner-reveal', true);
+        DOMUtils.updateElementClass(this.elements.currentParticipant, 'winner-glitch', true);
         
         // Запускаем звуковой эффект
         this.playWinnerSound();
@@ -433,10 +434,11 @@ class VimsRandomizer {
             this.elements.startRandom.disabled = true;
         }
 
-        // Убираем эффект подпрыгивания
+        // Убираем эффекты появления победителя
         setTimeout(() => {
-            DOMUtils.updateElementClass(this.elements.currentParticipant, 'bouncing', false);
-        }, CONFIG.BOUNCING_DURATION);
+            DOMUtils.updateElementClass(this.elements.currentParticipant, 'winner-reveal', false);
+            DOMUtils.updateElementClass(this.elements.currentParticipant, 'winner-glitch', false);
+        }, 400);
     }
     
     playWinnerSound() {
@@ -516,7 +518,9 @@ class VimsRandomizer {
         DOMUtils.updateElementClass(this.elements.currentParticipant, 'glitching', false);
         DOMUtils.updateElementClass(this.elements.currentParticipant, 'pulsing', false);
         DOMUtils.updateElementClass(this.elements.currentParticipant, 'bouncing', false);
-
+        DOMUtils.updateElementClass(this.elements.currentParticipant, 'winner-reveal', false);
+        DOMUtils.updateElementClass(this.elements.currentParticipant, 'winner-glitch', false);
+ 
         this.updateUI();
         this.updateUndoButtonState();
         this.updateInputPanelState(); // Восстанавливаем начальное состояние панели
@@ -618,12 +622,6 @@ class VimsRandomizer {
     announceWinner(winner) {
         const announcement = `Выбран победитель: ${winner.name}`;
         this.announceToScreenReader(announcement);
-        
-        // Добавляем визуальный эффект
-        DOMUtils.updateElementClass(this.elements.currentParticipant, 'winner-celebration', true);
-        setTimeout(() => {
-            DOMUtils.updateElementClass(this.elements.currentParticipant, 'winner-celebration', false);
-        }, 1000);
     }
     
 }
