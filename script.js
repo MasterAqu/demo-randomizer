@@ -27,15 +27,15 @@ class Logger {
     static info(message, data = null) {
         console.log(`[Vims-Randomizer INFO] ${message}`, data);
     }
-    
+
     static error(message, error = null) {
         console.error(`[Vims-Randomizer ERROR] ${message}`, error);
     }
-    
+
     static warn(message, data = null) {
         console.warn(`[Vims-Randomizer WARN] ${message}`, data);
     }
-    
+
     static performance(label, fn) {
         const start = performance.now();
         const result = fn();
@@ -53,7 +53,7 @@ class DOMUtils {
         if (textContent) element.textContent = textContent;
         return element;
     }
-    
+
     static addEventListenerSafe(element, event, handler) {
         if (element && typeof element.addEventListener === 'function') {
             element.addEventListener(event, handler);
@@ -61,7 +61,7 @@ class DOMUtils {
             Logger.warn(`Cannot add event listener to element:`, element);
         }
     }
-    
+
     static updateElementText(element, text) {
         if (element) {
             element.textContent = text;
@@ -69,7 +69,7 @@ class DOMUtils {
             element.setAttribute('data-text', text);
         }
     }
-    
+
     static updateElementClass(element, className, add = true) {
         if (element) {
             if (add) {
@@ -95,7 +95,7 @@ class ValidationUtils {
         }
         return { valid: true };
     }
-    
+
     static sanitizeInput(value) {
         if (typeof value !== 'string') return '';
         return value.trim().replace(/[<>]/g, '');
@@ -112,7 +112,7 @@ class VimsRandomizer {
         this.bindEvents();
         this.init();
     }
-    
+
     createInitialState() {
         return {
             participants: [],
@@ -124,7 +124,7 @@ class VimsRandomizer {
             sessionId: this.generateSessionId()
         };
     }
-    
+
     initializeElements() {
         return {
             participantCount: document.getElementById('participantCount'),
@@ -141,7 +141,7 @@ class VimsRandomizer {
             inputGroup: document.querySelector('.input-group')
         };
     }
-    
+
     loadSettings() {
         // Фиксированные настройки: темная тема, минимальная анимация (1 сек), без звука
         return {
@@ -150,26 +150,26 @@ class VimsRandomizer {
             darkMode: true
         };
     }
-    
+
     saveSettings() {
         // Настройки не сохраняются - используются фиксированные значения
         Logger.info('Using fixed settings: dark mode, min animation, no sound');
     }
-    
+
     generateSessionId() {
         return Date.now().toString(36) + Math.random().toString(36).substr(2);
     }
-    
+
     bindEvents() {
         const e = this.elements;
-        
+
         // Основные события
         DOMUtils.addEventListenerSafe(e.addParticipants, 'click', () => this.handleAddParticipants());
         DOMUtils.addEventListenerSafe(e.addDemoToActive, 'click', () => this.handleAddDemoToActive());
         DOMUtils.addEventListenerSafe(e.startRandom, 'click', () => this.handleStartRandom());
         DOMUtils.addEventListenerSafe(e.undoLast, 'click', () => this.handleUndoLast());
         DOMUtils.addEventListenerSafe(e.resetAll, 'click', () => this.handleResetAll());
-        
+
         // Обработка Enter в поле ввода
         DOMUtils.addEventListenerSafe(e.participantCount, 'keypress', (event) => {
             if (event.key === 'Enter') {
@@ -182,7 +182,7 @@ class VimsRandomizer {
             }
         });
     }
-    
+
     init() {
         Logger.info('Initializing Vims-Randomizer...');
         this.applyTheme();
@@ -190,7 +190,7 @@ class VimsRandomizer {
         this.updateStatus('Готов к работе! Введите количество демо.', 'success');
         Logger.info('Vims-Randomizer initialized successfully');
     }
-    
+
     applyTheme() {
         // Всегда используем темную тему
         document.documentElement.setAttribute('data-theme', 'dark');
@@ -222,72 +222,72 @@ class VimsRandomizer {
         const countInput = this.elements.participantCount.value;
         const sanitizedInput = ValidationUtils.sanitizeInput(countInput);
         const count = parseInt(sanitizedInput);
-        
+
         const validation = ValidationUtils.validateParticipantCount(count);
         if (!validation.valid) {
             this.updateStatus(validation.message, 'error');
             this.announceToScreenReader(validation.message);
             return;
         }
-        
+
         Logger.performance('handleAddParticipants', () => {
             this.addParticipants(count);
         });
-        
+
         // Очищаем поле ввода после успешной обработки
         this.elements.participantCount.value = '';
     }
-    
+
     handleAddDemoToActive() {
         const countInput = this.elements.participantCount.value;
         const sanitizedInput = ValidationUtils.sanitizeInput(countInput);
         const countToAdd = parseInt(sanitizedInput);
-        
+
         const validation = ValidationUtils.validateParticipantCount(countToAdd);
         if (!validation.valid) {
             this.updateStatus(validation.message, 'error');
             this.announceToScreenReader(validation.message);
             return;
         }
-        
+
         Logger.performance('handleAddDemoToActive', () => {
             this.addDemoToActive(countToAdd);
         });
     }
-    
+
     handleStartRandom() {
         if (this.state.remainingParticipants.length === 0) {
             this.updateStatus('Все демо уже выбраны! Нажмите "Сбросить всё" для нового раунда.', 'warning');
             this.announceToScreenReader('Все участники уже выбраны');
             return;
         }
-        
+
         this.startAutoRandomization();
     }
-    
+
     handleUndoLast() {
         if (this.state.undoStack.length === 0) {
             this.updateStatus('Нечего отменять!', 'warning');
             return;
         }
-        
+
         const lastState = this.state.undoStack.pop();
         this.restoreState(lastState);
         this.updateStatus('Последний выбор отменён!', 'success');
         this.updateUndoButtonState();
         Logger.info('Undo performed successfully');
     }
-    
+
     handleResetAll() {
         if (this.state.isRandomizing) {
             this.stopRandomization();
         }
-        
+
         this.resetAll();
         this.updateStatus('Состояние сброшено. Введите количество демо для начала.', 'success');
         Logger.info('Reset all performed');
     }
-    
+
     // Основная логика
     addParticipants(count) {
         this.state.participants = [];
@@ -295,7 +295,7 @@ class VimsRandomizer {
         this.state.history = [];
         this.state.undoStack = []; // Очищаем стек undo при новом наборе
         this.state.isRandomizing = false;
-        
+
         // Сбрасываем главное окно к начальному состоянию
         DOMUtils.updateElementText(this.elements.currentParticipant, '?');
         DOMUtils.updateElementClass(this.elements.currentParticipant, 'glitching', false);
@@ -310,19 +310,19 @@ class VimsRandomizer {
             this.state.participants.push(participant);
             this.state.remainingParticipants.push(participant);
         }
-        
+
         this.updateUI();
         this.updateUndoButtonState();
         this.updateInputPanelState(); // Обновляем состояние панели ввода
         this.updateStatus(`Добавлено ${count} демо. Нажмите "Поехали" для начала!`, 'success');
         this.announceToScreenReader(`Добавлено ${count} участников`);
     }
-    
+
     addDemoToActive(countToAdd) {
         const currentMaxId = this.state.participants.length > 0
-            ? Math.max(...this.state.participants.map(p => p.id)) 
+            ? Math.max(...this.state.participants.map(p => p.id))
             : 0;
-        
+
         for (let i = 1; i <= countToAdd; i++) {
             const newId = currentMaxId + i;
             const newDemo = {
@@ -332,14 +332,14 @@ class VimsRandomizer {
             this.state.participants.push(newDemo);
             this.state.remainingParticipants.push(newDemo);
         }
-        
+
         this.updateUI();
         this.updateStatus(`Добавлено ${countToAdd} демо. Всего: ${this.state.participants.length}, Осталось: ${this.state.remainingParticipants.length}`, 'success');
         this.announceToScreenReader(`Добавлено ${countToAdd} участников`);
-        
+
         this.elements.participantCount.value = '';
     }
-    
+
     startAutoRandomization() {
         this.state.isRandomizing = true;
         this.elements.startRandom.disabled = true;
@@ -347,36 +347,36 @@ class VimsRandomizer {
 
         let counter = 0;
         const totalIterations = this.calculateIterations();
-        
+
         this.state.intervalId = setInterval(() => {
             this.animateRandomSelection(counter, totalIterations);
             counter++;
-            
+
             if (counter >= totalIterations) {
                 this.stopRandomization();
                 this.selectWinner();
             }
         }, CONFIG.ANIMATION_INTERVAL);
-        
+
         this.updateStatus('Рандомизация в процессе...', 'warning');
         this.announceToScreenReader('Рандомизация началась');
     }
-    
+
     calculateIterations() {
         const baseIterations = CONFIG.MIN_ITERATIONS;
         const randomAddition = Math.floor(Math.random() * (CONFIG.MAX_ITERATIONS - CONFIG.MIN_ITERATIONS));
         const durationMultiplier = this.settings.animationDuration / 2; // Базовая длительность 2 сек
         return Math.floor((baseIterations + randomAddition) * durationMultiplier);
     }
-    
+
     animateRandomSelection(counter, totalIterations) {
         if (this.state.remainingParticipants.length === 0) return;
-        
+
         const randomIndex = Math.floor(Math.random() * this.state.remainingParticipants.length);
         const tempParticipant = this.state.remainingParticipants[randomIndex];
-        
+
         DOMUtils.updateElementText(this.elements.currentParticipant, tempParticipant.name);
-        
+
         if (counter % CONFIG.ANIMATION_FREQUENCY === 0) {
             DOMUtils.updateElementClass(this.elements.currentParticipant, 'pulsing', true);
             setTimeout(() => {
@@ -384,47 +384,199 @@ class VimsRandomizer {
             }, 200);
         }
     }
-    
+
     stopRandomization() {
         if (this.state.intervalId) {
             clearInterval(this.state.intervalId);
             this.state.intervalId = null;
         }
-        
+
         this.state.isRandomizing = false;
         this.elements.startRandom.disabled = false;
         DOMUtils.updateElementClass(this.elements.currentParticipant, 'glitching', false);
         DOMUtils.updateElementClass(this.elements.currentParticipant, 'pulsing', false);
     }
-    
+
+    // Утилита для случайных значений в диапазоне
+    randomInRange(min, max) {
+        return Math.random() * (max - min) + min;
+    }
+
+    // Перемешивание массива (Fisher-Yates)
+    shuffleArray(array) {
+        const shuffled = [...array];
+        for (let i = shuffled.length - 1; i > 0; i--) {
+            const j = Math.floor(Math.random() * (i + 1));
+            [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
+        }
+        return shuffled;
+    }
+
+    // Генерация случайной последовательности эффектов
+    generateRandomEffectSequence() {
+        const baseEffects = ['glitch-intense'];
+
+        // Дополнительные эффекты для случайного выбора
+        const extraEffects = [
+            { name: 'screen-tear', weight: 0.6 },
+            { name: 'blackout-flash', weight: 0.4 },
+            { name: 'rgb-split-intense', weight: 0.7 },
+            { name: 'static-noise-intense', weight: 0.5 },
+            { name: 'chaos-burst', weight: 0.3 }
+        ];
+
+        const selectedExtra = [];
+
+        // Случайно решаем, какие дополнительные эффекты добавить
+        for (const effect of extraEffects) {
+            if (Math.random() < effect.weight) {
+                selectedExtra.push(effect.name);
+            }
+        }
+
+        // Перемешиваем и ограничиваем количество (не более 3)
+        return [...baseEffects, ...this.shuffleArray(selectedExtra).slice(0, 3)];
+    }
+
+    // Генерация случайных таймингов для фаз анимации
+    generateRandomTimings() {
+        return {
+            phase1: this.randomInRange(300, 500),   // 300-500ms интенсивный глитч
+            phase2: this.randomInRange(300, 500),   // 300-500ms появление с затуханием
+            phase3: this.randomInRange(300, 500),   // 300-500ms стабилизация
+            blackoutChance: Math.random() < 0.25     // 25% шанс дополнительного blackout
+        };
+    }
+
+    // Очистка всех эффектов анимации
+    clearAnimationEffects() {
+        const effects = [
+            'vhs-chaos', 'vhs-tracking', 'vhs-rgb-shift', 'vhs-reveal', 'vhs-color-bleed',
+            'glitch-intense', 'rgb-split-intense', 'screen-tear', 'blackout-flash',
+            'static-noise-intense', 'chaos-burst', 'fade-stabilize', 'winner-glow'
+        ];
+
+        for (const effect of effects) {
+            DOMUtils.updateElementClass(this.elements.currentParticipant, effect, false);
+        }
+    }
+
+    // Применение эффекта с затуханием
+    applyEffectWithFade(effectName, duration, fadeOut = true) {
+        DOMUtils.updateElementClass(this.elements.currentParticipant, effectName, true);
+
+        if (fadeOut) {
+            setTimeout(() => {
+                DOMUtils.updateElementClass(this.elements.currentParticipant, effectName, false);
+            }, duration * 0.7); // Начинаем затухание на 70% длительности
+        }
+    }
+
+    // Усиленная анимация появления победителя с рандомизацией
     selectWinner() {
         if (this.state.remainingParticipants.length === 0) return;
-        
+
         // Сохраняем состояние перед выбором победителя (для возможности отмены)
         this.saveStateForUndo();
 
         const randomIndex = Math.floor(Math.random() * this.state.remainingParticipants.length);
         const winner = this.state.remainingParticipants.splice(randomIndex, 1)[0];
-        
+
         // Обновляем состояние истории
         this.state.history.push(winner);
 
-        // Сразу показываем победителя в главном окне
-        DOMUtils.updateElementText(this.elements.currentParticipant, winner.name);
-        DOMUtils.updateElementClass(this.elements.currentParticipant, 'winner-reveal', true);
-        DOMUtils.updateElementClass(this.elements.currentParticipant, 'winner-glitch', true);
-        
-        // Запускаем звуковой эффект
-        this.playWinnerSound();
+        // Генерируем случайную последовательность эффектов и тайминги
+        const effectSequence = this.generateRandomEffectSequence();
+        const timings = this.generateRandomTimings();
 
-        // Обновляем историю и статистику (без изменения главного окна)
+        Logger.info('Animation sequence:', { effects: effectSequence, timings });
+
+        // Очищаем предыдущие эффекты
+        this.clearAnimationEffects();
+
+        // === ФАЗА 1: Интенсивный хаотичный глитч ===
+        // Основной эффект - всегда применяем
+        DOMUtils.updateElementClass(this.elements.currentParticipant, 'glitch-intense', true);
+
+        // Применяем случайные дополнительные эффекты
+        if (effectSequence.includes('screen-tear')) {
+            DOMUtils.updateElementClass(this.elements.currentParticipant, 'screen-tear', true);
+        }
+
+        if (effectSequence.includes('rgb-split-intense')) {
+            DOMUtils.updateElementClass(this.elements.currentParticipant, 'rgb-split-intense', true);
+        }
+
+        // === ФАЗА 2: Появление с затуханием ===
+        setTimeout(() => {
+            // Очищаем эффекты фазы 1
+            this.clearAnimationEffects();
+
+            // Показываем имя победителя
+            DOMUtils.updateElementText(this.elements.currentParticipant, winner.name);
+
+            // Применяем стабилизацию с затуханием
+            if (effectSequence.includes('chaos-burst')) {
+                DOMUtils.updateElementClass(this.elements.currentParticipant, 'chaos-burst', true);
+            } else {
+                DOMUtils.updateElementClass(this.elements.currentParticipant, 'fade-stabilize', true);
+            }
+
+            // Применяем статический шум с вероятностью
+            if (effectSequence.includes('static-noise-intense')) {
+                DOMUtils.updateElementClass(this.elements.currentParticipant, 'static-noise-intense', true);
+            }
+
+            // Случайный blackout flash (25% шанс)
+            if (timings.blackoutChance) {
+                setTimeout(() => {
+                    DOMUtils.updateElementClass(this.elements.currentParticipant, 'blackout-flash', true);
+                    setTimeout(() => {
+                        DOMUtils.updateElementClass(this.elements.currentParticipant, 'blackout-flash', false);
+                    }, 150);
+                }, this.randomInRange(100, 300));
+            }
+
+        }, timings.phase1);
+
+        // === ФАЗА 3: Стабилизация и победное свечение ===
+        setTimeout(() => {
+            // Очищаем эффекты фазы 2
+            const effectsToRemove = ['fade-stabilize', 'chaos-burst', 'static-noise-intense'];
+            for (const effect of effectsToRemove) {
+                DOMUtils.updateElementClass(this.elements.currentParticipant, effect, false);
+            }
+
+            // Добавляем финальное победное свечение
+            DOMUtils.updateElementClass(this.elements.currentParticipant, 'winner-glow', true);
+
+            // Добавляем RGB-сплит на короткое время для драматического эффекта
+            if (Math.random() < 0.5) {
+                DOMUtils.updateElementClass(this.elements.currentParticipant, 'rgb-split-intense', true);
+                setTimeout(() => {
+                    DOMUtils.updateElementClass(this.elements.currentParticipant, 'rgb-split-intense', false);
+                }, 400);
+            }
+
+        }, timings.phase1 + timings.phase2);
+
+        // === ФИНАЛ: Обновление UI ===
+        // Убираем финальное свечение через время и запускаем победную анимацию
+        setTimeout(() => {
+            DOMUtils.updateElementClass(this.elements.currentParticipant, 'winner-glow', false);
+
+            // Добавляем класс для истории (подсветка последнего выбранного)
+            this.updateHistoryDisplay();
+        }, timings.phase1 + timings.phase2 + timings.phase3);
+
+        // Обновляем историю и статистику
         this.updateHistoryDisplay();
         this.updateButtonStates();
         DOMUtils.updateElementText(this.elements.remainingCount, this.state.remainingParticipants.length);
 
         // Объявляем победителя для screen readers
         this.announceWinner(winner);
-        
+
         // Обновляем статус
         const remaining = this.state.remainingParticipants.length;
         if (remaining > 0) {
@@ -434,39 +586,36 @@ class VimsRandomizer {
             this.elements.startRandom.disabled = true;
         }
 
-        // Убираем эффекты появления победителя
-        setTimeout(() => {
-            DOMUtils.updateElementClass(this.elements.currentParticipant, 'winner-reveal', false);
-            DOMUtils.updateElementClass(this.elements.currentParticipant, 'winner-glitch', false);
-        }, 400);
+        // Логируем для отладки
+        Logger.info(`Winner selected: ${winner.name} with effects: ${effectSequence.join(', ')}`);
     }
-    
+
     playWinnerSound() {
         if (!this.settings.soundEnabled) return;
-        
+
         try {
             // Создаем простой звуковой эффект с помощью Web Audio API
             const audioContext = new (window.AudioContext || window.webkitAudioContext)();
             const oscillator = audioContext.createOscillator();
             const gainNode = audioContext.createGain();
-            
+
             oscillator.connect(gainNode);
             gainNode.connect(audioContext.destination);
-            
+
             oscillator.frequency.setValueAtTime(800, audioContext.currentTime);
             oscillator.frequency.exponentialRampToValueAtTime(1200, audioContext.currentTime + 0.1);
             oscillator.frequency.exponentialRampToValueAtTime(600, audioContext.currentTime + 0.3);
-            
+
             gainNode.gain.setValueAtTime(0.3, audioContext.currentTime);
             gainNode.gain.exponentialRampToValueAtTime(0.01, audioContext.currentTime + 0.3);
-            
+
             oscillator.start(audioContext.currentTime);
             oscillator.stop(audioContext.currentTime + 0.3);
         } catch (error) {
             Logger.warn('Could not play winner sound:', error);
         }
     }
-    
+
     saveStateForUndo() {
         const stateSnapshot = {
             participants: [...this.state.participants],
@@ -474,9 +623,9 @@ class VimsRandomizer {
             history: [...this.state.history],
             timestamp: Date.now()
         };
-        
+
         this.state.undoStack.push(stateSnapshot);
-        
+
         // Ограничиваем размер стека отмены
         if (this.state.undoStack.length > CONFIG.UNDO_LIMIT) {
             this.state.undoStack.shift();
@@ -484,7 +633,7 @@ class VimsRandomizer {
 
         this.updateUndoButtonState();
     }
-    
+
     restoreState(savedState) {
         this.state.participants = [...savedState.participants];
         this.state.remainingParticipants = [...savedState.remainingParticipants];
@@ -501,11 +650,11 @@ class VimsRandomizer {
         // Обновляем UI
         this.updateUI();
     }
-    
+
     updateUndoButtonState() {
         this.elements.undoLast.disabled = this.state.undoStack.length === 0;
     }
-    
+
     resetAll() {
         this.state.participants = [];
         this.state.remainingParticipants = [];
@@ -520,7 +669,7 @@ class VimsRandomizer {
         DOMUtils.updateElementClass(this.elements.currentParticipant, 'bouncing', false);
         DOMUtils.updateElementClass(this.elements.currentParticipant, 'winner-reveal', false);
         DOMUtils.updateElementClass(this.elements.currentParticipant, 'winner-glitch', false);
- 
+
         this.updateUI();
         this.updateUndoButtonState();
         this.updateInputPanelState(); // Восстанавливаем начальное состояние панели
@@ -530,7 +679,7 @@ class VimsRandomizer {
             this.elements.participantCount.value = '';
         }
     }
-    
+
     updateUI() {
         this.uiOptimizer.queueUpdate(() => {
             DOMUtils.updateElementText(this.elements.demoCount, this.state.participants.length);
@@ -540,37 +689,37 @@ class VimsRandomizer {
             this.updateButtonStates();
         });
     }
-    
+
     updateButtonStates() {
         const hasRemaining = this.state.remainingParticipants.length > 0;
         this.elements.startRandom.disabled = !hasRemaining;
     }
-    
+
     updateHistoryDisplay() {
         const container = this.elements.participantHistory;
         container.innerHTML = '';
-        
+
         const fragment = document.createDocumentFragment();
         const reversedHistory = [...this.state.history].reverse();
-        
+
         reversedHistory.forEach((participant, index) => {
             const li = DOMUtils.createElement('li', '', participant.id.toString());
             li.title = `${participant.name} (кликните чтобы вернуть в розыгрыш)`;
             li.setAttribute('data-participant-id', participant.id);
-            
+
             if (index === 0) {
                 li.classList.add('recent', 'pulsing');
             }
-            
+
             // Добавляем обработчик клика для возврата в розыгрыш
             li.addEventListener('click', () => this.handleHistoryItemClick(participant.id));
 
             fragment.appendChild(li);
         });
-        
+
         container.appendChild(fragment);
     }
-    
+
     handleHistoryItemClick(participantId) {
         // Находим участника в истории
         const historyIndex = this.state.history.findIndex(p => p.id === participantId);
@@ -606,24 +755,24 @@ class VimsRandomizer {
         DOMUtils.updateElementText(this.elements.statusMessage, message);
         this.elements.statusMessage.className = `status-message ${type}`;
     }
-    
+
     announceToScreenReader(message) {
         const announcement = document.createElement('div');
         announcement.setAttribute('aria-live', 'polite');
         announcement.className = 'sr-only';
         announcement.textContent = message;
         document.body.appendChild(announcement);
-        
+
         setTimeout(() => {
             document.body.removeChild(announcement);
         }, 1000);
     }
-    
+
     announceWinner(winner) {
         const announcement = `Выбран победитель: ${winner.name}`;
         this.announceToScreenReader(announcement);
     }
-    
+
 }
 
 // Класс для оптимизации обновлений UI
@@ -633,14 +782,14 @@ class UIOptimizer {
         this.isUpdating = false;
         this.animationFrame = null;
     }
-    
+
     queueUpdate(callback) {
         this.updateQueue.push(callback);
         if (!this.isUpdating) {
             this.processQueue();
         }
     }
-    
+
     processQueue() {
         this.isUpdating = true;
 
@@ -670,13 +819,13 @@ document.addEventListener('DOMContentLoaded', () => {
 
 // Экспорт для тестирования (если нужно)
 if (typeof module !== 'undefined' && module.exports) {
-    module.exports = { 
-        VimsRandomizer, 
-        CONFIG, 
-        Logger, 
-        DOMUtils, 
-        ValidationUtils, 
-        UIOptimizer 
+    module.exports = {
+        VimsRandomizer,
+        CONFIG,
+        Logger,
+        DOMUtils,
+        ValidationUtils,
+        UIOptimizer
     };
 }
 

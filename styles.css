@@ -496,18 +496,22 @@ input[type="checkbox"] {
     transform: rotate(0deg) scale(1);
     filter: hue-rotate(0deg) brightness(1);
   }
+
   25% {
     transform: rotate(90deg) scale(1.05);
     filter: hue-rotate(90deg) brightness(1.2);
   }
+
   50% {
     transform: rotate(180deg) scale(1.1);
     filter: hue-rotate(180deg) brightness(1.4);
   }
+
   75% {
     transform: rotate(270deg) scale(1.05);
     filter: hue-rotate(270deg) brightness(1.2);
   }
+
   100% {
     transform: rotate(360deg) scale(1);
     filter: hue-rotate(360deg) brightness(1);
@@ -515,7 +519,9 @@ input[type="checkbox"] {
 }
 
 @keyframes glitch {
-  0%, 100% {
+
+  0%,
+  100% {
     transform: translate(0) scale(1);
     filter: hue-rotate(0deg) brightness(1) contrast(1);
     text-shadow:
@@ -523,6 +529,7 @@ input[type="checkbox"] {
       -2px 0 #00ffff;
     clip-path: inset(0 0 0 0);
   }
+
   3% {
     transform: translate(-2px, 1px) skewX(4deg) scale(1.01);
     filter: hue-rotate(20deg) brightness(1.2) contrast(1.1);
@@ -532,6 +539,7 @@ input[type="checkbox"] {
       0 1px #ff00ff;
     clip-path: inset(5% 0 30% 0);
   }
+
   6% {
     transform: translate(2px, -1px) skewX(-4deg) scale(0.99);
     filter: hue-rotate(40deg) brightness(1.3) contrast(1.2) invert(0.05);
@@ -541,6 +549,7 @@ input[type="checkbox"] {
       0 -2px #00ff00;
     clip-path: inset(40% 0 10% 0);
   }
+
   9% {
     transform: translate(-3px, 2px) skewX(6deg) scale(1.02);
     filter: hue-rotate(60deg) brightness(1.4) contrast(1.3) saturate(1.2);
@@ -550,6 +559,7 @@ input[type="checkbox"] {
       2px 2px #ffff00;
     clip-path: inset(70% 0 5% 0);
   }
+
   12% {
     transform: translate(3px, -2px) skewX(-6deg) scale(0.98);
     filter: hue-rotate(80deg) brightness(1.5) contrast(1.4) invert(0.1);
@@ -559,6 +569,7 @@ input[type="checkbox"] {
       -3px -3px #ff00ff;
     clip-path: inset(20% 0 50% 0);
   }
+
   15% {
     transform: translate(-4px, 3px) skewX(8deg) scale(1.03);
     filter: hue-rotate(100deg) brightness(1.6) contrast(1.5) saturate(1.3);
@@ -568,6 +579,7 @@ input[type="checkbox"] {
       0 3px #00ff00;
     clip-path: inset(50% 0 20% 0);
   }
+
   18% {
     transform: translate(4px, -3px) skewX(-8deg) scale(0.97);
     filter: hue-rotate(120deg) brightness(1.7) contrast(1.6) invert(0.15);
@@ -577,6 +589,7 @@ input[type="checkbox"] {
       4px -4px #ffff00;
     clip-path: inset(80% 0 0 0);
   }
+
   21% {
     transform: translate(-5px, 4px) skewX(10deg) scale(1.04);
     filter: hue-rotate(140deg) brightness(1.8) contrast(1.7) saturate(1.4);
@@ -586,6 +599,7 @@ input[type="checkbox"] {
       -4px 4px #ff00ff;
     clip-path: inset(10% 0 60% 0);
   }
+
   24% {
     transform: translate(5px, -4px) skewX(-10deg) scale(0.96);
     filter: hue-rotate(160deg) brightness(1.9) contrast(1.8) invert(0.2);
@@ -595,6 +609,7 @@ input[type="checkbox"] {
       0 -5px #00ff00;
     clip-path: inset(60% 0 10% 0);
   }
+
   27% {
     transform: translate(-6px, 5px) skewX(12deg) scale(1.05);
     filter: hue-rotate(180deg) brightness(2) contrast(1.9) saturate(1.5);
@@ -604,6 +619,7 @@ input[type="checkbox"] {
       5px 5px #ffff00;
     clip-path: inset(30% 0 40% 0);
   }
+
   30% {
     transform: translate(6px, -5px) skewX(-12deg) scale(0.95);
     filter: hue-rotate(200deg) brightness(1.8) contrast(1.7) invert(0.15);
@@ -613,6 +629,7 @@ input[type="checkbox"] {
       -5px -5px #ff00ff;
     clip-path: inset(70% 0 5% 0);
   }
+
   33% {
     transform: translate(-7px, 6px) skewX(14deg) scale(1.06);
     filter: hue-rotate(220deg) brightness(1.9) contrast(1.8) saturate(1.6);
@@ -622,6 +639,7 @@ input[type="checkbox"] {
       0 6px #00ff00;
     clip-path: inset(40% 0 30% 0);
   }
+
   36% {
     transform: translate(7px, -6px) skewX(-14deg) scale(0.94);
     filter: hue-rotate(240deg) brightness(2) contrast(1.9) invert(0.25);
@@ -631,6 +649,7 @@ input[type="checkbox"] {
       6px -6px #ffff00;
     clip-path: inset(0 0 80% 0);
   }
+
   39% {
     transform: translate(-8px, 7px) skewX(16deg) scale(1.07);
     filter: hue-rotate(260deg) brightness(1.7) contrast(1.6) saturate(1.4);
@@ -640,6 +659,7 @@ input[type="checkbox"] {
       -6px 6px #ff00ff;
     clip-path: inset(20% 0 50% 0);
   }
+
   42% {
     transform: translate(8px, -7px) skewX(-16deg) scale(0.93);
     filter: hue-rotate(280deg) brightness(1.8) contrast(1.7) invert(0.2);
@@ -649,6 +669,7 @@ input[type="checkbox"] {
       0 -7px #00ff00;
     clip-path: inset(80% 0 0 0);
   }
+
   45% {
     transform: translate(-9px, 8px) skewX(18deg) scale(1.08);
     filter: hue-rotate(300deg) brightness(1.9) contrast(1.8) saturate(1.5);
@@ -658,6 +679,7 @@ input[type="checkbox"] {
       7px 7px #ffff00;
     clip-path: inset(50% 0 20% 0);
   }
+
   48% {
     transform: translate(9px, -8px) skewX(-18deg) scale(0.92);
     filter: hue-rotate(320deg) brightness(2) contrast(1.9) invert(0.3);
@@ -667,6 +689,7 @@ input[type="checkbox"] {
       -7px -7px #ff00ff;
     clip-path: inset(10% 0 70% 0);
   }
+
   51% {
     transform: translate(-10px, 9px) skewX(20deg) scale(1.09);
     filter: hue-rotate(340deg) brightness(1.8) contrast(1.7) saturate(1.6);
@@ -676,6 +699,7 @@ input[type="checkbox"] {
       0 8px #00ff00;
     clip-path: inset(60% 0 10% 0);
   }
+
   54% {
     transform: translate(10px, -9px) skewX(-20deg) scale(0.91);
     filter: hue-rotate(0deg) brightness(1.9) contrast(1.8) invert(0.25);
@@ -685,6 +709,7 @@ input[type="checkbox"] {
       8px -8px #ffff00;
     clip-path: inset(30% 0 40% 0);
   }
+
   57% {
     transform: translate(-11px, 10px) skewX(22deg) scale(1.1);
     filter: hue-rotate(20deg) brightness(2) contrast(1.9) saturate(1.7);
@@ -694,6 +719,7 @@ input[type="checkbox"] {
       -8px 8px #ff00ff;
     clip-path: inset(70% 0 5% 0);
   }
+
   60% {
     transform: translate(11px, -10px) skewX(-22deg) scale(0.9);
     filter: hue-rotate(40deg) brightness(1.7) contrast(1.6) invert(0.2);
@@ -703,6 +729,7 @@ input[type="checkbox"] {
       0 -10px #00ff00;
     clip-path: inset(40% 0 30% 0);
   }
+
   63% {
     transform: translate(-12px, 11px) skewX(24deg) scale(1.11);
     filter: hue-rotate(60deg) brightness(1.8) contrast(1.7) saturate(1.5);
@@ -712,6 +739,7 @@ input[type="checkbox"] {
       9px 9px #ffff00;
     clip-path: inset(0 0 80% 0);
   }
+
   66% {
     transform: translate(12px, -11px) skewX(-24deg) scale(0.89);
     filter: hue-rotate(80deg) brightness(1.9) contrast(1.8) invert(0.35);
@@ -721,6 +749,7 @@ input[type="checkbox"] {
       -9px -9px #ff00ff;
     clip-path: inset(20% 0 50% 0);
   }
+
   69% {
     transform: translate(-13px, 12px) skewX(26deg) scale(1.12);
     filter: hue-rotate(100deg) brightness(2) contrast(1.9) saturate(1.6);
@@ -730,6 +759,7 @@ input[type="checkbox"] {
       0 12px #00ff00;
     clip-path: inset(80% 0 0 0);
   }
+
   72% {
     transform: translate(13px, -12px) skewX(-26deg) scale(0.88);
     filter: hue-rotate(120deg) brightness(1.7) contrast(1.6) invert(0.3);
@@ -739,6 +769,7 @@ input[type="checkbox"] {
       10px -10px #ffff00;
     clip-path: inset(50% 0 20% 0);
   }
+
   75% {
     transform: translate(-14px, 13px) skewX(28deg) scale(1.13);
     filter: hue-rotate(140deg) brightness(1.8) contrast(1.7) saturate(1.4);
@@ -748,6 +779,7 @@ input[type="checkbox"] {
       -10px 10px #ff00ff;
     clip-path: inset(10% 0 60% 0);
   }
+
   78% {
     transform: translate(14px, -13px) skewX(-28deg) scale(0.87);
     filter: hue-rotate(160deg) brightness(1.9) contrast(1.8) invert(0.25);
@@ -757,6 +789,7 @@ input[type="checkbox"] {
       0 -13px #00ff00;
     clip-path: inset(60% 0 10% 0);
   }
+
   81% {
     transform: translate(-15px, 14px) skewX(30deg) scale(1.14);
     filter: hue-rotate(180deg) brightness(2) contrast(1.9) saturate(1.5);
@@ -766,6 +799,7 @@ input[type="checkbox"] {
       11px 11px #ffff00;
     clip-path: inset(30% 0 40% 0);
   }
+
   84% {
     transform: translate(15px, -14px) skewX(-30deg) scale(0.86);
     filter: hue-rotate(200deg) brightness(1.7) contrast(1.6) invert(0.2);
@@ -775,6 +809,7 @@ input[type="checkbox"] {
       -11px -11px #ff00ff;
     clip-path: inset(70% 0 5% 0);
   }
+
   87% {
     transform: translate(-16px, 15px) skewX(32deg) scale(1.15);
     filter: hue-rotate(220deg) brightness(1.8) contrast(1.7) saturate(1.6);
@@ -784,6 +819,7 @@ input[type="checkbox"] {
       0 15px #00ff00;
     clip-path: inset(40% 0 30% 0);
   }
+
   90% {
     transform: translate(16px, -15px) skewX(-32deg) scale(0.85);
     filter: hue-rotate(240deg) brightness(1.9) contrast(1.8) invert(0.35);
@@ -793,6 +829,7 @@ input[type="checkbox"] {
       12px -12px #ffff00;
     clip-path: inset(0 0 80% 0);
   }
+
   93% {
     transform: translate(-17px, 16px) skewX(34deg) scale(1.16);
     filter: hue-rotate(260deg) brightness(2) contrast(1.9) saturate(1.7);
@@ -802,6 +839,7 @@ input[type="checkbox"] {
       -12px 12px #ff00ff;
     clip-path: inset(20% 0 50% 0);
   }
+
   96% {
     transform: translate(17px, -16px) skewX(-34deg) scale(0.84);
     filter: hue-rotate(280deg) brightness(1.7) contrast(1.6) invert(0.3);
@@ -811,6 +849,7 @@ input[type="checkbox"] {
       0 -16px #00ff00;
     clip-path: inset(80% 0 0 0);
   }
+
   98% {
     transform: translate(-18px, 17px) skewX(36deg) scale(1.17);
     filter: hue-rotate(300deg) brightness(1.8) contrast(1.7) saturate(1.5);
@@ -855,51 +894,62 @@ input[type="checkbox"] {
 }
 
 @keyframes glitch-layer-1 {
-  0%, 100% {
+
+  0%,
+  100% {
     transform: translate(0);
     opacity: 0.7;
     clip-path: inset(0 0 0 0);
   }
+
   10% {
     transform: translate(-12px, 3px);
     opacity: 0.5;
     clip-path: inset(15% 0 50% 0);
   }
+
   20% {
     transform: translate(10px, -4px);
     opacity: 0.8;
     clip-path: inset(60% 0 10% 0);
   }
+
   30% {
     transform: translate(-8px, 5px);
     opacity: 0.4;
     clip-path: inset(30% 0 40% 0);
   }
+
   40% {
     transform: translate(14px, -6px);
     opacity: 0.6;
     clip-path: inset(70% 0 5% 0);
   }
+
   50% {
     transform: translate(-10px, 7px);
     opacity: 0.9;
     clip-path: inset(20% 0 55% 0);
   }
+
   60% {
     transform: translate(12px, -8px);
     opacity: 0.5;
     clip-path: inset(85% 0 0 0);
   }
+
   70% {
     transform: translate(-14px, 9px);
     opacity: 0.7;
     clip-path: inset(40% 0 25% 0);
   }
+
   80% {
     transform: translate(8px, -10px);
     opacity: 0.4;
     clip-path: inset(5% 0 75% 0);
   }
+
   90% {
     transform: translate(-6px, 11px);
     opacity: 0.8;
@@ -908,36 +958,44 @@ input[type="checkbox"] {
 }
 
 @keyframes glitch-layer-2 {
-  0%, 100% {
+
+  0%,
+  100% {
     transform: translate(0);
     opacity: 0.7;
     clip-path: inset(0 0 0 0);
   }
+
   15% {
     transform: translate(15px, -4px);
     opacity: 0.6;
     clip-path: inset(45% 0 30% 0);
   }
+
   30% {
     transform: translate(-12px, 6px);
     opacity: 0.8;
     clip-path: inset(10% 0 65% 0);
   }
+
   45% {
     transform: translate(10px, -8px);
     opacity: 0.5;
     clip-path: inset(75% 0 5% 0);
   }
+
   60% {
     transform: translate(-8px, 10px);
     opacity: 0.9;
     clip-path: inset(25% 0 50% 0);
   }
+
   75% {
     transform: translate(14px, -12px);
     opacity: 0.4;
     clip-path: inset(80% 0 0 0);
   }
+
   90% {
     transform: translate(-10px, 14px);
     opacity: 0.7;
@@ -951,11 +1009,13 @@ input[type="checkbox"] {
     text-shadow: 0 0 20px var(--glow-cyan);
     filter: brightness(1);
   }
+
   50% {
     transform: scale(1.15);
     text-shadow: 0 0 40px var(--glow-cyan), 0 0 60px var(--glow-purple);
     filter: brightness(1.3);
   }
+
   100% {
     transform: scale(1);
     text-shadow: 0 0 20px var(--glow-cyan);
@@ -964,18 +1024,23 @@ input[type="checkbox"] {
 }
 
 @keyframes bounce {
-  0%, 100% {
+
+  0%,
+  100% {
     transform: translateY(0) scale(1);
     filter: brightness(1);
   }
+
   25% {
     transform: translateY(-10px) scale(1.05);
     filter: brightness(1.2);
   }
+
   50% {
     transform: translateY(-20px) scale(1.1);
     filter: brightness(1.4);
   }
+
   75% {
     transform: translateY(-10px) scale(1.05);
     filter: brightness(1.2);
@@ -983,10 +1048,13 @@ input[type="checkbox"] {
 }
 
 @keyframes recentPulse {
-  0%, 100% {
+
+  0%,
+  100% {
     box-shadow: 0 0 20px var(--glow-green);
     transform: scale(1);
   }
+
   50% {
     box-shadow: 0 0 40px var(--glow-green), 0 0 60px var(--primary-cyan);
     transform: scale(1.05);
@@ -998,18 +1066,22 @@ input[type="checkbox"] {
     transform: scale(1) rotate(0deg);
     filter: hue-rotate(0deg) brightness(1);
   }
+
   25% {
     transform: scale(1.2) rotate(5deg);
     filter: hue-rotate(90deg) brightness(1.5);
   }
+
   50% {
     transform: scale(1.3) rotate(-5deg);
     filter: hue-rotate(180deg) brightness(2);
   }
+
   75% {
     transform: scale(1.2) rotate(3deg);
     filter: hue-rotate(270deg) brightness(1.5);
   }
+
   100% {
     transform: scale(1) rotate(0deg);
     filter: hue-rotate(360deg) brightness(1);
@@ -1021,6 +1093,7 @@ input[type="checkbox"] {
     opacity: 0;
     transform: translateY(30px);
   }
+
   to {
     opacity: 1;
     transform: translateY(0);
@@ -1032,6 +1105,7 @@ input[type="checkbox"] {
     opacity: 0;
     transform: scale(0.8);
   }
+
   to {
     opacity: 1;
     transform: scale(1);
@@ -1068,11 +1142,13 @@ input[type="checkbox"] {
     transform: scale(0.8);
     filter: blur(4px);
   }
+
   50% {
     opacity: 0.5;
     transform: scale(1.05);
     filter: blur(0);
   }
+
   100% {
     opacity: 1;
     transform: scale(1);
@@ -1080,7 +1156,7 @@ input[type="checkbox"] {
     text-shadow: 0 0 20px var(--glow-green), 0 0 40px var(--primary-green);
   }
 }
- 
+
 /* Умеренный глитч-эффект для появления победителя (слабее рандомизации) */
 .winner-glitch {
   position: relative;
@@ -1088,7 +1164,9 @@ input[type="checkbox"] {
 }
 
 @keyframes winnerGlitch {
-  0%, 100% {
+
+  0%,
+  100% {
     transform: translate(0) scale(1);
     filter: hue-rotate(0deg) brightness(1) contrast(1);
     text-shadow:
@@ -1096,6 +1174,7 @@ input[type="checkbox"] {
       -2px 0 #00ffff;
     clip-path: inset(0 0 0 0);
   }
+
   20% {
     transform: translate(-1px, 0) skewX(2deg) scale(1.01);
     filter: hue-rotate(10deg) brightness(1.1) contrast(1.05);
@@ -1105,6 +1184,7 @@ input[type="checkbox"] {
       0 1px #ff00ff;
     clip-path: inset(2% 0 5% 0);
   }
+
   40% {
     transform: translate(1px, 0) skewX(-2deg) scale(0.99);
     filter: hue-rotate(20deg) brightness(1.15) contrast(1.1) invert(0.02);
@@ -1114,6 +1194,7 @@ input[type="checkbox"] {
       0 -2px #00ff00;
     clip-path: inset(10% 0 2% 0);
   }
+
   60% {
     transform: translate(-1px, 0) skewX(3deg) scale(1.02);
     filter: hue-rotate(30deg) brightness(1.2) contrast(1.15) saturate(1.1);
@@ -1123,6 +1204,7 @@ input[type="checkbox"] {
       2px 2px #ffff00;
     clip-path: inset(5% 0 10% 0);
   }
+
   80% {
     transform: translate(1px, 0) skewX(-3deg) scale(0.98);
     filter: hue-rotate(40deg) brightness(1.25) contrast(1.2) invert(0.05);
@@ -1140,6 +1222,895 @@ input[type="checkbox"] {
 
 .fade-in {
   animation: fadeInScale 0.3s ease-out;
+}
+
+/* ==================== VHS/Ретро глитч-эффекты ==================== */
+.vhs-scan-lines {
+  position: relative;
+}
+
+.vhs-scan-lines::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: repeating-linear-gradient(0deg, transparent, transparent 2px, rgba(0, 0, 0, 0.3) 2px, rgba(0, 0, 0, 0.3) 4px);
+  pointer-events: none;
+  animation: vhsScanLines 0.1s steps(60) infinite;
+  z-index: 1;
+  mix-blend-mode: overlay;
+}
+
+@keyframes vhsScanLines {
+
+  0%,
+  100% {
+    background-position: 0 0;
+  }
+
+  100% {
+    background-position: 0 4px;
+  }
+}
+
+.vhs-tracking {
+  animation: vhsTracking 0.3s steps(5) infinite;
+}
+
+@keyframes vhsTracking {
+
+  0%,
+  100% {
+    transform: translateX(0) skewX(0);
+    filter: brightness(1) contrast(1);
+  }
+
+  10% {
+    transform: translateX(-5%) skewX(-2deg);
+    filter: brightness(1.2) contrast(1.1);
+  }
+
+  20% {
+    transform: translateX(3%) skewX(1deg);
+    filter: brightness(0.9) contrast(0.95);
+  }
+
+  30% {
+    transform: translateX(-2%) skewX(-1deg);
+    filter: brightness(1.1) contrast(1.05);
+  }
+
+  40% {
+    transform: translateX(4%) skewX(2deg);
+    filter: brightness(0.85) contrast(0.9);
+  }
+
+  50% {
+    transform: translateX(-3%) skewX(-3deg);
+    filter: brightness(1.3) contrast(1.2);
+  }
+
+  60% {
+    transform: translateX(2%) skewX(1deg);
+    filter: brightness(0.95) contrast(1);
+  }
+
+  70% {
+    transform: translateX(-4%) skewX(-2deg);
+    filter: brightness(1.15) contrast(1.1);
+  }
+
+  80% {
+    transform: translateX(1%) skewX(0.5deg);
+    filter: brightness(1) contrast(1);
+  }
+
+  90% {
+    transform: translateX(-1%) skewX(-0.5deg);
+    filter: brightness(1.05) contrast(1.02);
+  }
+}
+
+.vhs-static {
+  position: relative;
+}
+
+.vhs-static::before {
+  content: '';
+  position: absolute;
+  top: -10px;
+  left: -10px;
+  right: -10px;
+  bottom: -10px;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='100'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100' height='100' filter='url(%23noise)' opacity='0.3'/%3E%3C/svg%3E");
+  background-size: 100px 100px;
+  opacity: 0.4;
+  animation: vhsStatic 0.05s steps(5) infinite;
+  pointer-events: none;
+  z-index: 0;
+  mix-blend-mode: screen;
+}
+
+@keyframes vhsStatic {
+
+  0%,
+  100% {
+    background-position: 0 0;
+    opacity: 0.3;
+  }
+
+  25% {
+    background-position: 10px 5px;
+    opacity: 0.4;
+  }
+
+  50% {
+    background-position: -5px 10px;
+    opacity: 0.5;
+  }
+
+  75% {
+    background-position: 15px -5px;
+    opacity: 0.35;
+  }
+}
+
+.vhs-rgb-shift {
+  position: relative;
+}
+
+.vhs-rgb-shift::after {
+  content: attr(data-text);
+  position: absolute;
+  top: 0;
+  left: 0;
+  color: #ff0000;
+  text-shadow: -3px 0 #00ffff;
+  animation: vhsRgbShift 0.15s steps(3) infinite;
+  mix-blend-mode: screen;
+  z-index: -1;
+  opacity: 0.7;
+}
+
+@keyframes vhsRgbShift {
+
+  0%,
+  100% {
+    transform: translateX(0) translateY(0);
+  }
+
+  25% {
+    transform: translateX(-2px) translateY(1px);
+  }
+
+  50% {
+    transform: translateX(1px) translateY(-1px);
+  }
+
+  75% {
+    transform: translateX(-1px) translateY(2px);
+  }
+}
+
+.vhs-color-bleed {
+  animation: vhsColorBleed 0.4s ease-in-out infinite;
+}
+
+@keyframes vhsColorBleed {
+
+  0%,
+  100% {
+    filter: saturate(1) hue-rotate(0deg);
+  }
+
+  25% {
+    filter: saturate(1.5) hue-rotate(5deg);
+  }
+
+  50% {
+    filter: saturate(0.8) hue-rotate(-5deg);
+  }
+
+  75% {
+    filter: saturate(1.3) hue-rotate(3deg);
+  }
+}
+
+.vhs-clip-distortion {
+  animation: vhsClipDistortion 0.5s steps(10) infinite;
+}
+
+@keyframes vhsClipDistortion {
+
+  0%,
+  100% {
+    clip-path: inset(0 0 0 0);
+  }
+
+  5% {
+    clip-path: inset(10% 0 85% 0);
+  }
+
+  10% {
+    clip-path: inset(40% 0 55% 0);
+  }
+
+  15% {
+    clip-path: inset(0 0 0 0);
+  }
+
+  20% {
+    clip-path: inset(80% 0 5% 0);
+  }
+
+  25% {
+    clip-path: inset(15% 0 80% 0);
+  }
+
+  30% {
+    clip-path: inset(60% 0 35% 0);
+  }
+
+  35% {
+    clip-path: inset(5% 0 90% 0);
+  }
+
+  40% {
+    clip-path: inset(90% 0 0 0);
+  }
+
+  45% {
+    clip-path: inset(25% 0 70% 0);
+  }
+
+  50% {
+    clip-path: inset(0 0 0 0);
+  }
+}
+
+.vhs-chaos {
+  animation: vhsTracking 0.1s steps(3) infinite, vhsClipDistortion 0.2s steps(5) infinite;
+}
+
+.vhs-chaos::before {
+  content: '';
+  position: absolute;
+  top: -20px;
+  left: -20px;
+  right: -20px;
+  bottom: -20px;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='100'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='1.2' numOctaves='5' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100' height='100' filter='url(%23noise)' opacity='0.5'/%3E%3C/svg%3E");
+  background-size: 50px 50px;
+  opacity: 0.6;
+  animation: vhsStatic 0.02s steps(2) infinite;
+  pointer-events: none;
+  z-index: -1;
+  mix-blend-mode: overlay;
+}
+
+.vhs-reveal {
+  animation: vhsReveal 0.4s ease-out forwards;
+}
+
+@keyframes vhsReveal {
+  0% {
+    opacity: 0.5;
+    transform: scale(0.95);
+    filter: blur(3px) brightness(1.2);
+  }
+
+  50% {
+    opacity: 0.8;
+    transform: scale(1.02);
+    filter: blur(1px) brightness(1.1);
+  }
+
+  100% {
+    opacity: 1;
+    transform: scale(1);
+    filter: blur(0) brightness(1);
+    text-shadow: 0 0 20px var(--glow-green), 0 0 40px var(--primary-green);
+  }
+}
+
+/* ==================== Усиленный глитч-эффект ==================== */
+
+/* Основной интенсивный глитч */
+.glitch-intense {
+  animation: glitchIntense 0.5s ease-out forwards;
+}
+
+@keyframes glitchIntense {
+  0% {
+    opacity: 0;
+    transform: translate(0, 0) skewX(0deg) scale(0.5);
+    filter: hue-rotate(0deg) brightness(0.5) blur(10px);
+    clip-path: inset(0 0 0 0);
+  }
+
+  3% {
+    opacity: 1;
+    transform: translate(-8px, 3px) skewX(-12deg) scale(0.85);
+    filter: hue-rotate(60deg) brightness(1.8) contrast(1.5) blur(0);
+    clip-path: inset(20% 0 75% 0);
+  }
+
+  6% {
+    opacity: 1;
+    transform: translate(5px, -2px) skewX(8deg) scale(1.1);
+    filter: hue-rotate(120deg) brightness(0.6) contrast(0.8);
+    clip-path: inset(0 0 0 0);
+  }
+
+  9% {
+    transform: translate(-6px, 4px) skewX(-10deg) scale(0.95);
+    filter: hue-rotate(180deg) brightness(2) contrast(1.3);
+    clip-path: inset(30% 0 65% 0);
+  }
+
+  12% {
+    transform: translate(7px, -3px) skewX(6deg) scale(1.05);
+    filter: hue-rotate(240deg) brightness(0.7);
+    clip-path: inset(0 0 0 0);
+  }
+
+  15% {
+    opacity: 0.8;
+    transform: translate(-4px, 2px) skewX(-8deg) scale(0.92);
+    filter: hue-rotate(300deg) brightness(1.5) contrast(1.2);
+    clip-path: inset(45% 0 50% 0);
+  }
+
+  18% {
+    transform: translate(5px, -5px) skewX(10deg) scale(1.08);
+    filter: hue-rotate(30deg) brightness(0.9) contrast(1.1);
+    clip-path: inset(10% 0 80% 0);
+  }
+
+  21% {
+    transform: translate(-7px, 3px) skewX(-6deg) scale(0.88);
+    filter: hue-rotate(90deg) brightness(1.6) blur(2px);
+    clip-path: inset(60% 0 35% 0);
+  }
+
+  24% {
+    opacity: 0.6;
+    transform: translate(3px, -2px) skewX(4deg) scale(1.02);
+    filter: hue-rotate(150deg) brightness(0.8);
+    clip-path: inset(0 0 0 0);
+  }
+
+  27% {
+    transform: translate(-5px, 4px) skewX(-9deg) scale(0.94);
+    filter: hue-rotate(210deg) brightness(1.4) contrast(1.15);
+    clip-path: inset(35% 0 60% 0);
+  }
+
+  30% {
+    transform: translate(6px, -3px) skewX(7deg) scale(1.06);
+    filter: hue-rotate(270deg) brightness(1.1);
+    clip-path: inset(15% 0 70% 0);
+  }
+
+  33% {
+    opacity: 0.7;
+    transform: translate(-3px, 2px) skewX(-5deg) scale(0.91);
+    filter: hue-rotate(330deg) brightness(1.3) blur(1px);
+    clip-path: inset(50% 0 45% 0);
+  }
+
+  36% {
+    transform: translate(4px, -4px) skewX(8deg) scale(1.03);
+    filter: hue-rotate(45deg) brightness(0.85);
+    clip-path: inset(5% 0 85% 0);
+  }
+
+  39% {
+    transform: translate(-6px, 2px) skewX(-7deg) scale(0.93);
+    filter: hue-rotate(105deg) brightness(1.7) contrast(1.25);
+    clip-path: inset(40% 0 55% 0);
+  }
+
+  42% {
+    transform: translate(2px, -1px) skewX(3deg) scale(1.01);
+    filter: hue-rotate(165deg) brightness(0.95);
+    clip-path: inset(0 0 0 0);
+  }
+
+  45% {
+    opacity: 0.8;
+    transform: translate(-4px, 3px) skewX(-6deg) scale(0.96);
+    filter: hue-rotate(225deg) brightness(1.2);
+    clip-path: inset(25% 0 70% 0);
+  }
+
+  50% {
+    transform: translate(3px, -2px) skewX(4deg) scale(1.02);
+    filter: hue-rotate(285deg) brightness(1.1);
+    clip-path: inset(8% 0 82% 0);
+  }
+
+  60% {
+    opacity: 0.9;
+    transform: translate(-2px, 1px) skewX(-2deg) scale(0.98);
+    filter: hue-rotate(315deg) brightness(1.05);
+    clip-path: inset(12% 0 78% 0);
+  }
+
+  75% {
+    transform: translate(1px, -1px) skewX(1deg) scale(1.005);
+    filter: hue-rotate(345deg) brightness(1.02);
+    clip-path: inset(3% 0 87% 0);
+  }
+
+  90% {
+    opacity: 0.95;
+    transform: translate(0, 0) skewX(0deg) scale(1);
+    filter: hue-rotate(360deg) brightness(1);
+    clip-path: inset(0 0 0 0);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translate(0, 0) skewX(0deg) scale(1);
+    filter: hue-rotate(0deg) brightness(1) blur(0);
+    clip-path: inset(0 0 0 0);
+    text-shadow: 0 0 20px var(--glow-green), 0 0 40px var(--primary-green);
+  }
+}
+
+/* RGB-сплит с большей амплитудой */
+.rgb-split-intense {
+  position: relative;
+  animation: rgbSplitIntense 0.4s steps(3) infinite;
+}
+
+.rgb-split-intense::before,
+.rgb-split-intense::after {
+  content: attr(data-text);
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0.8;
+}
+
+.rgb-split-intense::before {
+  color: #ff0000;
+  text-shadow: -8px 0 #ff0000;
+  animation: rgbLayer1 0.15s steps(3) infinite;
+  z-index: -1;
+}
+
+.rgb-split-intense::after {
+  color: #00ffff;
+  text-shadow: 8px 0 #00ffff;
+  animation: rgbLayer2 0.12s steps(3) infinite;
+  z-index: -2;
+}
+
+@keyframes rgbLayer1 {
+
+  0%,
+  100% {
+    transform: translate(-2px, 0);
+    opacity: 0.7;
+  }
+
+  25% {
+    transform: translate(-6px, 2px);
+    opacity: 0.9;
+  }
+
+  50% {
+    transform: translate(-4px, -1px);
+    opacity: 0.5;
+  }
+
+  75% {
+    transform: translate(-8px, 1px);
+    opacity: 0.8;
+  }
+}
+
+@keyframes rgbLayer2 {
+
+  0%,
+  100% {
+    transform: translate(2px, 0);
+    opacity: 0.7;
+  }
+
+  25% {
+    transform: translate(6px, -2px);
+    opacity: 0.9;
+  }
+
+  50% {
+    transform: translate(4px, 1px);
+    opacity: 0.5;
+  }
+
+  75% {
+    transform: translate(8px, -1px);
+    opacity: 0.8;
+  }
+}
+
+@keyframes rgbSplitIntense {
+
+  0%,
+  100% {
+    text-shadow: none;
+    transform: translate(0, 0);
+  }
+
+  20% {
+    text-shadow: -8px 0 #ff0000, 8px 0 #00ffff;
+    transform: translate(-2px, 1px);
+  }
+
+  40% {
+    text-shadow: -5px 0 #ff0000, 5px 0 #00ff00, 0 5px #0000ff;
+    transform: translate(3px, -2px);
+  }
+
+  60% {
+    text-shadow: -10px 0 #ff00ff, 10px 0 #ffff00;
+    transform: translate(-1px, 2px);
+  }
+
+  80% {
+    text-shadow: -6px 0 #ff0000, 6px 0 #00ffff, -3px -3px #00ff00;
+    transform: translate(2px, -1px);
+  }
+}
+
+/* Разрывы экрана */
+.screen-tear {
+  animation: screenTear 0.3s steps(8) infinite;
+}
+
+@keyframes screenTear {
+
+  0%,
+  100% {
+    clip-path: inset(0 0 0 0);
+    transform: translate(0, 0);
+  }
+
+  10% {
+    clip-path: inset(15% 0 70% 0);
+    transform: translate(-5px, 0);
+  }
+
+  20% {
+    clip-path: inset(50% 0 40% 0);
+    transform: translate(3px, 0);
+  }
+
+  30% {
+    clip-path: inset(5% 0 90% 0);
+    transform: translate(-2px, 0);
+  }
+
+  40% {
+    clip-path: inset(70% 0 20% 0);
+    transform: translate(4px, 0);
+  }
+
+  50% {
+    clip-path: inset(25% 0 65% 0);
+    transform: translate(-3px, 0);
+  }
+
+  60% {
+    clip-path: inset(0 0 0 0);
+    transform: translate(2px, 0);
+  }
+
+  70% {
+    clip-path: inset(60% 0 30% 0);
+    transform: translate(-1px, 0);
+  }
+
+  80% {
+    clip-path: inset(10% 0 80% 0);
+    transform: translate(3px, 0);
+  }
+
+  90% {
+    clip-path: inset(40% 0 50% 0);
+    transform: translate(-2px, 0);
+  }
+}
+
+/* Вспышки затемнения */
+.blackout-flash {
+  animation: blackoutFlash 0.15s steps(2) infinite;
+}
+
+@keyframes blackoutFlash {
+
+  0%,
+  100% {
+    opacity: 1;
+    filter: brightness(1);
+    background: transparent;
+  }
+
+  50% {
+    opacity: 0;
+    filter: brightness(0) saturate(0);
+    background: #000000;
+  }
+}
+
+/* Пиксельное искажение */
+.pixel-corrupt {
+  animation: pixelCorrupt 0.25s steps(6) infinite;
+}
+
+@keyframes pixelCorrupt {
+
+  0%,
+  100% {
+    filter: none;
+    transform: translate(0, 0);
+  }
+
+  15% {
+    filter: url('#pixelate') brightness(1.3) contrast(1.2);
+    transform: translate(-2px, 1px);
+  }
+
+  30% {
+    filter: url('#pixelate') brightness(0.8) contrast(0.9);
+    transform: translate(2px, -1px);
+  }
+
+  45% {
+    filter: url('#pixelate') brightness(1.5) saturate(1.5);
+    transform: translate(-1px, 2px);
+  }
+
+  60% {
+    filter: url('#pixelate') brightness(0.9) invert(0.1);
+    transform: translate(1px, -2px);
+  }
+
+  75% {
+    filter: url('#pixelate') brightness(1.1) contrast(1.1);
+    transform: translate(-2px, -1px);
+  }
+
+  90% {
+    filter: url('#pixelate') brightness(1.05);
+    transform: translate(2px, 1px);
+  }
+}
+
+/* Плавная стабилизация с затуханием */
+.fade-stabilize {
+  animation: fadeStabilize 0.6s ease-out forwards;
+}
+
+@keyframes fadeStabilize {
+  0% {
+    opacity: 0.2;
+    filter: blur(15px) brightness(2) saturate(0.5);
+    transform: scale(0.8) rotate(-2deg);
+    text-shadow: none;
+  }
+
+  20% {
+    opacity: 0.4;
+    filter: blur(10px) brightness(1.5) saturate(0.7);
+    transform: scale(0.9) rotate(1deg);
+  }
+
+  40% {
+    opacity: 0.6;
+    filter: blur(6px) brightness(1.2) saturate(0.85);
+    transform: scale(0.95) rotate(-1deg);
+  }
+
+  60% {
+    opacity: 0.8;
+    filter: blur(3px) brightness(1.1) saturate(0.95);
+    transform: scale(1.02) rotate(0.5deg);
+  }
+
+  80% {
+    opacity: 0.92;
+    filter: blur(1px) brightness(1.05);
+    transform: scale(1.01) rotate(-0.3deg);
+  }
+
+  100% {
+    opacity: 1;
+    filter: blur(0) brightness(1) saturate(1);
+    transform: scale(1) rotate(0deg);
+    text-shadow: 0 0 25px var(--glow-green), 0 0 50px var(--primary-green), 0 0 75px rgba(0, 255, 136, 0.3);
+  }
+}
+
+/* Эффект статического шума (усиленный) */
+.static-noise-intense {
+  position: relative;
+}
+
+.static-noise-intense::before {
+  content: '';
+  position: absolute;
+  top: -20px;
+  left: -20px;
+  right: -20px;
+  bottom: -20px;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='1.5' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='200' height='200' filter='url(%23noise)' opacity='0.6'/%3E%3C/svg%3E");
+  background-size: 40px 40px;
+  opacity: 0.7;
+  animation: staticNoiseIntense 0.03s steps(3) infinite;
+  pointer-events: none;
+  z-index: -1;
+  mix-blend-mode: overlay;
+}
+
+@keyframes staticNoiseIntense {
+  0% {
+    background-position: 0 0;
+    opacity: 0.5;
+  }
+
+  25% {
+    background-position: 15px 8px;
+    opacity: 0.7;
+  }
+
+  50% {
+    background-position: -8px 12px;
+    opacity: 0.6;
+  }
+
+  75% {
+    background-position: 18px -6px;
+    opacity: 0.8;
+  }
+
+  100% {
+    background-position: -5px 5px;
+    opacity: 0.5;
+  }
+}
+
+/* Волновое искажение */
+.wave-distort {
+  animation: waveDistort 0.4s ease-in-out infinite;
+}
+
+@keyframes waveDistort {
+
+  0%,
+  100% {
+    transform: scaleY(1) scaleX(1);
+    filter: none;
+  }
+
+  25% {
+    transform: scaleY(0.95) scaleX(1.05);
+    filter: brightness(1.1);
+  }
+
+  50% {
+    transform: scaleY(1.05) scaleX(0.95);
+    filter: brightness(0.95);
+  }
+
+  75% {
+    transform: scaleY(0.98) scaleX(1.02);
+    filter: brightness(1.05);
+  }
+}
+
+/* Комбинированный эффект - хаотичный разрыв */
+.chaos-burst {
+  animation: chaosBurst 0.5s ease-out forwards;
+}
+
+@keyframes chaosBurst {
+  0% {
+    opacity: 0;
+    transform: scale(0.3);
+    filter: blur(20px) brightness(3) hue-rotate(0deg);
+  }
+
+  5% {
+    opacity: 1;
+    transform: scale(1.3) rotate(15deg);
+    filter: blur(0) brightness(2) hue-rotate(90deg);
+    text-shadow: -10px 0 #ff0000, 10px 0 #00ffff;
+    clip-path: inset(10% 0 80% 0);
+  }
+
+  10% {
+    transform: scale(0.7) rotate(-10deg);
+    filter: blur(5px) brightness(0.5) hue-rotate(180deg);
+    clip-path: inset(60% 0 30% 0);
+  }
+
+  15% {
+    transform: scale(1.2) rotate(8deg);
+    filter: blur(0) brightness(1.8) hue-rotate(270deg);
+    text-shadow: 8px 0 #ff00ff, -8px 0 #ffff00;
+    clip-path: inset(30% 0 60% 0);
+  }
+
+  20% {
+    transform: scale(0.85) rotate(-6deg);
+    filter: blur(3px) brightness(0.7) hue-rotate(45deg);
+    clip-path: inset(0 0 0 0);
+  }
+
+  30% {
+    transform: scale(1.1) rotate(4deg);
+    filter: blur(1px) brightness(1.3);
+    text-shadow: -5px 0 #ff0000, 5px 0 #00ffff;
+    clip-path: inset(20% 0 70% 0);
+  }
+
+  45% {
+    transform: scale(0.95) rotate(-3deg);
+    filter: blur(2px) brightness(1.1);
+    clip-path: inset(40% 0 50% 0);
+  }
+
+  60% {
+    transform: scale(1.03) rotate(2deg);
+    filter: blur(0.5px) brightness(1.05);
+    text-shadow: -3px 0 #ff0000, 3px 0 #00ffff;
+    clip-path: inset(10% 0 85% 0);
+  }
+
+  80% {
+    transform: scale(0.99) rotate(-1deg);
+    filter: blur(0) brightness(1.02);
+    clip-path: inset(5% 0 90% 0);
+  }
+
+  100% {
+    opacity: 1;
+    transform: scale(1) rotate(0deg);
+    filter: blur(0) brightness(1);
+    text-shadow: 0 0 20px var(--glow-green), 0 0 40px var(--primary-green);
+    clip-path: inset(0 0 0 0);
+  }
+}
+
+/* Победное свечение (финальное состояние) */
+.winner-glow {
+  animation: winnerGlow 2s ease-in-out infinite;
+}
+
+@keyframes winnerGlow {
+
+  0%,
+  100% {
+    text-shadow: 0 0 20px var(--glow-green),
+      0 0 40px var(--primary-green),
+      0 0 60px rgba(0, 255, 136, 0.3);
+    filter: brightness(1) saturate(1);
+  }
+
+  50% {
+    text-shadow: 0 0 30px var(--glow-green),
+      0 0 60px var(--primary-green),
+      0 0 90px rgba(0, 255, 136, 0.5),
+      0 0 120px rgba(0, 255, 136, 0.2);
+    filter: brightness(1.15) saturate(1.2);
+  }
 }
 
 /* Скрытый текст для screen readers */
@@ -1161,7 +2132,7 @@ input[type="checkbox"] {
     padding: 20px;
     border-width: 1px;
   }
-  
+
   .app-header {
     flex-direction: column;
     gap: 15px;
@@ -1171,15 +2142,15 @@ input[type="checkbox"] {
   .app-header h1 {
     font-size: 2rem;
   }
-  
+
   .input-panel {
     flex-direction: column;
   }
-  
+
   .input-group {
     min-width: 100%;
   }
-  
+
   .button-group {
     flex-direction: row;
     justify-content: center;
@@ -1189,7 +2160,7 @@ input[type="checkbox"] {
     width: 100%;
     min-width: auto;
   }
-  
+
   .current-participant {
     font-size: 3.5rem;
     min-height: 80px;
@@ -1199,11 +2170,11 @@ input[type="checkbox"] {
     flex-direction: column;
     gap: 15px;
   }
-  
+
   .history-list {
     grid-template-columns: repeat(auto-fill, minmax(60px, 1fr));
   }
-  
+
   .history-list li {
     font-size: 1.2rem;
     padding: 10px;
@@ -1218,15 +2189,15 @@ input[type="checkbox"] {
   body {
     padding: 10px;
   }
-  
+
   .app-container {
     padding: 15px;
   }
-  
+
   .app-header h1 {
     font-size: 1.6rem;
   }
-  
+
   .current-participant {
     font-size: 2.5rem;
     min-height: 60px;
