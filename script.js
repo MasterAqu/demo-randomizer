@@ -414,15 +414,22 @@ class VimsRandomizer {
 
     // Генерация случайной последовательности эффектов
     generateRandomEffectSequence() {
-        const baseEffects = ['glitch-intense'];
+        const baseEffects = ['glitching'];
 
         // Дополнительные эффекты для случайного выбора
         const extraEffects = [
-            { name: 'screen-tear', weight: 0.6 },
-            { name: 'blackout-flash', weight: 0.4 },
-            { name: 'rgb-split-intense', weight: 0.7 },
-            { name: 'static-noise-intense', weight: 0.5 },
-            { name: 'chaos-burst', weight: 0.3 }
+            { name: 'chaos-buildup', weight: 0.9 },      // Нарастание хаоса
+            { name: 'chaos-explosion', weight: 0.8 },     // Взрывной момент
+            { name: 'chaos-stabilize', weight: 0.9 },     // Стабилизация
+            { name: 'winner-glow-chaos', weight: 0.95 },  // Победное свечение
+            { name: 'static-overlay', weight: 0.7 },       // Статический шум
+            { name: 'scanlines-overlay', weight: 0.6 },    // Scan lines
+            { name: 'rgb-triple-split', weight: 0.8 },    // RGB тройной сплит
+            { name: 'screen-tear', weight: 0.75 },        // Разрывы экрана
+            { name: 'blackout-flash', weight: 0.6 },      // Вспышки затемнения
+            { name: 'pixel-corrupt', weight: 0.65 },      // Пиксельное искажение
+            { name: 'wave-distort', weight: 0.7 },        // Волновое искажение
+            { name: 'chaos-burst', weight: 0.5 }          // Хаотичный разрыв
         ];
 
         const selectedExtra = [];
@@ -434,26 +441,39 @@ class VimsRandomizer {
             }
         }
 
-        // Перемешиваем и ограничиваем количество (не более 3)
-        return [...baseEffects, ...this.shuffleArray(selectedExtra).slice(0, 3)];
+        // Перемешиваем и ограничиваем количество (не более 5)
+        return [...baseEffects, ...this.shuffleArray(selectedExtra).slice(0, 5)];
     }
 
     // Генерация случайных таймингов для фаз анимации
     generateRandomTimings() {
         return {
-            phase1: this.randomInRange(300, 500),   // 300-500ms интенсивный глитч
-            phase2: this.randomInRange(300, 500),   // 300-500ms появление с затуханием
-            phase3: this.randomInRange(300, 500),   // 300-500ms стабилизация
-            blackoutChance: Math.random() < 0.25     // 25% шанс дополнительного blackout
+            phase1: this.randomInRange(500, 700),   // 500-700ms нарастание хаоса
+            phase2: this.randomInRange(350, 450),   // 350-450ms взрывной момент
+            phase3: this.randomInRange(450, 550),   // 450-550ms стабилизация
+            blackoutChance: Math.random() < 0.35,    // 35% шанс дополнительного blackout
+            staticChance: Math.random() < 0.6,       // 60% шанс статического шума
+            scanlinesChance: Math.random() < 0.5     // 50% шанс scan lines
         };
     }
 
     // Очистка всех эффектов анимации
     clearAnimationEffects() {
         const effects = [
+            // VHS эффекты
             'vhs-chaos', 'vhs-tracking', 'vhs-rgb-shift', 'vhs-reveal', 'vhs-color-bleed',
+
+            // Усиленные эффекты
             'glitch-intense', 'rgb-split-intense', 'screen-tear', 'blackout-flash',
-            'static-noise-intense', 'chaos-burst', 'fade-stabilize', 'winner-glow'
+            'static-noise-intense', 'chaos-burst', 'fade-stabilize', 'winner-glow',
+
+            // Органичное продолжение
+            'glitch-slowdown', 'glitch-stabilize', 'winner-glow-subtle',
+
+            // Новые хаотичные эффекты
+            'chaos-buildup', 'chaos-explosion', 'chaos-stabilize', 'winner-glow-chaos',
+            'static-overlay', 'scanlines-overlay', 'rgb-triple-split',
+            'pixel-corrupt', 'wave-distort'
         ];
 
         for (const effect of effects) {
@@ -472,7 +492,7 @@ class VimsRandomizer {
         }
     }
 
-    // Усиленная анимация появления победителя с рандомизацией
+    // Органичная анимация появления победителя (продолжение глитча прокрутки)
     selectWinner() {
         if (this.state.remainingParticipants.length === 0) return;
 
@@ -485,88 +505,72 @@ class VimsRandomizer {
         // Обновляем состояние истории
         this.state.history.push(winner);
 
-        // Генерируем случайную последовательность эффектов и тайминги
-        const effectSequence = this.generateRandomEffectSequence();
-        const timings = this.generateRandomTimings();
-
-        Logger.info('Animation sequence:', { effects: effectSequence, timings });
-
-        // Очищаем предыдущие эффекты
+        // Очищаем предыдущие эффекты (но не .glitching)
         this.clearAnimationEffects();
 
-        // === ФАЗА 1: Интенсивный хаотичный глитч ===
-        // Основной эффект - всегда применяем
-        DOMUtils.updateElementClass(this.elements.currentParticipant, 'glitch-intense', true);
+        // Генерируем случайные тайминги
+        const timings = this.generateRandomTimings();
 
-        // Применяем случайные дополнительные эффекты
-        if (effectSequence.includes('screen-tear')) {
-            DOMUtils.updateElementClass(this.elements.currentParticipant, 'screen-tear', true);
+        // === ФАЗА 1: Нарастание хаоса ===
+        DOMUtils.updateElementClass(this.elements.currentParticipant, 'chaos-buildup', true);
+
+        // Добавляем дополнительные эффекты с определённой вероятностью
+        if (timings.staticChance) {
+            DOMUtils.updateElementClass(this.elements.currentParticipant, 'static-overlay', true);
+        }
+        if (timings.scanlinesChance) {
+            DOMUtils.updateElementClass(this.elements.currentParticipant, 'scanlines-overlay', true);
         }
 
-        if (effectSequence.includes('rgb-split-intense')) {
-            DOMUtils.updateElementClass(this.elements.currentParticipant, 'rgb-split-intense', true);
-        }
-
-        // === ФАЗА 2: Появление с затуханием ===
+        // === ФАЗА 2: Взрывной момент ===
         setTimeout(() => {
-            // Очищаем эффекты фазы 1
-            this.clearAnimationEffects();
+            // Убираем нарастание хаоса и базовый глитч
+            DOMUtils.updateElementClass(this.elements.currentParticipant, 'chaos-buildup', false);
+            DOMUtils.updateElementClass(this.elements.currentParticipant, 'glitching', false);
 
             // Показываем имя победителя
             DOMUtils.updateElementText(this.elements.currentParticipant, winner.name);
 
-            // Применяем стабилизацию с затуханием
-            if (effectSequence.includes('chaos-burst')) {
-                DOMUtils.updateElementClass(this.elements.currentParticipant, 'chaos-burst', true);
-            } else {
-                DOMUtils.updateElementClass(this.elements.currentParticipant, 'fade-stabilize', true);
-            }
+            // Применяем взрывной момент
+            DOMUtils.updateElementClass(this.elements.currentParticipant, 'chaos-explosion', true);
 
-            // Применяем статический шум с вероятностью
-            if (effectSequence.includes('static-noise-intense')) {
-                DOMUtils.updateElementClass(this.elements.currentParticipant, 'static-noise-intense', true);
-            }
+            // Добавляем RGB тройной сплит
+            DOMUtils.updateElementClass(this.elements.currentParticipant, 'rgb-triple-split', true);
 
-            // Случайный blackout flash (25% шанс)
+            // Случайный blackout
             if (timings.blackoutChance) {
+                DOMUtils.updateElementClass(this.elements.currentParticipant, 'blackout-flash', true);
                 setTimeout(() => {
-                    DOMUtils.updateElementClass(this.elements.currentParticipant, 'blackout-flash', true);
-                    setTimeout(() => {
-                        DOMUtils.updateElementClass(this.elements.currentParticipant, 'blackout-flash', false);
-                    }, 150);
-                }, this.randomInRange(100, 300));
+                    DOMUtils.updateElementClass(this.elements.currentParticipant, 'blackout-flash', false);
+                }, 150);
             }
 
         }, timings.phase1);
 
-        // === ФАЗА 3: Стабилизация и победное свечение ===
+        // === ФАЗА 3: Стабилизация ===
         setTimeout(() => {
-            // Очищаем эффекты фазы 2
-            const effectsToRemove = ['fade-stabilize', 'chaos-burst', 'static-noise-intense'];
-            for (const effect of effectsToRemove) {
-                DOMUtils.updateElementClass(this.elements.currentParticipant, effect, false);
-            }
+            // Убираем взрывной момент и дополнительные эффекты
+            DOMUtils.updateElementClass(this.elements.currentParticipant, 'chaos-explosion', false);
+            DOMUtils.updateElementClass(this.elements.currentParticipant, 'rgb-triple-split', false);
+            DOMUtils.updateElementClass(this.elements.currentParticipant, 'static-overlay', false);
+            DOMUtils.updateElementClass(this.elements.currentParticipant, 'scanlines-overlay', false);
 
-            // Добавляем финальное победное свечение
-            DOMUtils.updateElementClass(this.elements.currentParticipant, 'winner-glow', true);
-
-            // Добавляем RGB-сплит на короткое время для драматического эффекта
-            if (Math.random() < 0.5) {
-                DOMUtils.updateElementClass(this.elements.currentParticipant, 'rgb-split-intense', true);
-                setTimeout(() => {
-                    DOMUtils.updateElementClass(this.elements.currentParticipant, 'rgb-split-intense', false);
-                }, 400);
-            }
+            // Применяем стабилизацию
+            DOMUtils.updateElementClass(this.elements.currentParticipant, 'chaos-stabilize', true);
 
         }, timings.phase1 + timings.phase2);
 
-        // === ФИНАЛ: Обновление UI ===
-        // Убираем финальное свечение через время и запускаем победную анимацию
+        // === ФАЗА 4: Победное свечение ===
         setTimeout(() => {
-            DOMUtils.updateElementClass(this.elements.currentParticipant, 'winner-glow', false);
+            // Убираем стабилизацию
+            DOMUtils.updateElementClass(this.elements.currentParticipant, 'chaos-stabilize', false);
 
-            // Добавляем класс для истории (подсветка последнего выбранного)
+            // Добавляем финальное победное свечение с остаточным хаосом
+            DOMUtils.updateElementClass(this.elements.currentParticipant, 'winner-glow-chaos', true);
+
+            // Обновляем историю
             this.updateHistoryDisplay();
+
         }, timings.phase1 + timings.phase2 + timings.phase3);
 
         // Обновляем историю и статистику
@@ -587,7 +591,7 @@ class VimsRandomizer {
         }
 
         // Логируем для отладки
-        Logger.info(`Winner selected: ${winner.name} with effects: ${effectSequence.join(', ')}`);
+        Logger.info(`Winner selected: ${winner.name} with chaotic glitch animation`);
     }
 
     playWinnerSound() {
